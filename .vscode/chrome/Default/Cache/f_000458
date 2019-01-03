@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+<link href="http://www.technicalkeeda.com//img/images/tk-icon.gif" rel="shortcut icon" />
+
+
+<meta name="alexaVerifyID" content="QSRinQz4FOVAR0COGd2BS4D2DKc" />
+
+<title>How to Create Key Value Pair Array Using Javascript</title>
+<meta name="description" content="Create Key Value Pair Array Using Javascript, Our today's article is simple but demanding. Most of the new or experience java-script developer required below code. In this code snippet I have define java-script array values are in the form of key and value">
+<meta name="keywords" content="how to create key value pair, how to create key value pair in javascript, how to create key value pair array in javascript, javascript create key value array">
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="refresh" content="1500">
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7893183410463407",
+    enable_page_level_ads: true
+  });
+</script>
+
+<link href="http://www.technicalkeeda.com/css/bootstrap.css" rel="stylesheet">
+
+<link rel="canonical" href="http://www.technicalkeeda.com/javascript-tutorials/create-key-value-pair-array-using-javascript" />
+
+<link href="http://www.technicalkeeda.com/css/atelier-cave-dark.min.css" rel="stylesheet">
+
+
+<script src="http://www.technicalkeeda.com/js/jquery.js"></script>
+<script src="http://www.technicalkeeda.com/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://www.technicalkeeda.com/js/prettify.js"></script>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://www.technicalkeeda.com/js/html5shiv.js"></script>
+      <script src="http://www.technicalkeeda.com/js/respond.min.js"></script>
+    <![endif]-->
+
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "edf5eac0-4fc9-4c1d-95a5-75ebca79a71c", doNotHash:true, doNotCopy:true,hashAddressBar:false}); </script>
+
+<style>
+
+.container {
+     padding-right:35px;
+     padding-left:35px;  /*idem*/
+     margin-right:auto;
+     margin-left: auto;
+}
+
+.bottommargin{
+margin-bottom:10px;
+}
+.highLightCode {
+    background-color:#FFFFE0;
+    border: 1px solid #FFA500;
+    border-radius:2px;
+    margin:3px;
+    padding:3px;
+    color:#000000;
+}
+.hello{
+    background: #ffffff;
+}
+
+.thumbnail:hover {
+	border-color: #0088cc;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+	-moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+	box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+pre {
+	overflow: auto;
+	-ms-word-wrap: normal;
+    	word-wrap: normal;
+    	overflow-wrap: normal;
+    	white-space: pre;
+    	font-size: 13px;
+}
+
+p{
+line-height:1.7;
+}
+
+.tagcontainer ul li{
+padding:3px;
+}
+
+h1 { font-size: 28px; line-height: 30px;color: #226CCD; font-weight:bold;}
+h2 { font-size: 20px; line-height: 30px; }
+h3 { font-size: 16px; line-height: 30px; }
+h4 { font-size: 14px; line-height: 16px; }
+h5 { font-size: 12px; line-height: 16px; }
+h6 { font-size: 9px; line-height: 16px; }
+
+
+#pagination {
+	-moz-border-radius: 2px;
+	margin-top: 10px;
+	margin-left:0px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	
+}
+
+#pagination a,#pagination strong {
+	-moz-border-radius: 2px;
+	background: #226CCD;
+	height: 9px;
+	padding: 5px;
+	text-decoration: none;
+	border: solid 1px #226CCD;
+	background-color: #226CCD;
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bold;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+
+#pagination strong,#pagination a:hover {
+	-moz-border-radius: 2px;
+	background: #226CCD;
+	padding: 5px;
+	text-decoration: none;
+	border: solid 1px #226CCD;
+	color: black;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.progress {height:2px;}
+
+.fixed {
+    #width:350px;
+    #float: right;
+    #position: fixed;
+}
+
+.fixed + div {
+     #margin-left:0px;
+     #overflow: hidden;
+}
+
+#edm {
+    background: none repeat scroll 0 0 #2A2A2A;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    text-shadow: none;
+}
+
+#edm .email{
+    border: 0 none;
+    border-radius: 3px 3px 3px 3px;
+    color: #ACACAC;
+    float: left;
+    margin: 0 5px 5px 0;
+    padding: 8px 10px;
+    width:65%;
+}
+
+figure{
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top:10px;
+}
+</style>
+
+
+<script type="text/javascript">
+
+	$(document).ready(
+		function(){
+			prettyPrint();
+
+			$("#search").click(function() {
+				  var query = $("#query").val()
+				  $("#search-form").attr("action", "/search?query" + query);
+				  $( "#search-form" ).submit();
+			});
+
+
+			
+		});
+	</script>
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31975682-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+	<body>
+		
+		<div class="container">
+						<div class="row">
+				<div class="navbar navbar-inverse" role="navigation">
+				  <div class="navbar-header">
+				    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				      <span class="sr-only">Toggle navigation</span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				    </button>
+				    <a class="navbar-brand" href="http://www.technicalkeeda.com/">Technicalkeeda.com</a>
+				  </div>
+				  <div class="collapse navbar-collapse navbar-ex1-collapse">
+				    <ul class="nav navbar-nav">
+				      <li class="dropdown">
+				        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				        <ul class="dropdown-menu">				          
+				          <li><a href="/tutorials/codeigniter-tutorials">Codeigniter Tutorials</a></li>				          				          
+				          <li><a href="/tutorials/servlet-jsp-tutorials">Servlet Jsp Tutorials</a></li>
+				          <li><a href="/tutorials/mongodb-tutorials">Mongodb Tutorials</a></li>
+				          <li><a href="/tutorials/nodejs-tutorials">Nodejs Tutorials</a></li>				          		
+				          <li><a href="/tutorials/jquery-tutorials">jQuery Tutorials</a></li>
+				          <li><a href="/tutorials/bootstrap-tutorials">Bootstrap Tutorials</a></li>		          
+				        </ul>
+				      </li>
+				      <li class="dropdown">
+				        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Java Tutorials<b class="caret"></b></a>
+				        <ul class="dropdown-menu">				          				          
+				          <li><a href="/tutorials/java-tutorials">Java Tutorials</a></li>
+				          <li><a href="/tutorials/java-8-tutorials">Java 8 Tutorials</a></li>
+				          <li><a href="/java-tutorials/java-io-tutorials">Java IO Tutorials</a></li>
+				          <li><a href="/tutorials/java-mongodb-tutorials">Java Mongodb Tutorials</a></li>
+				          <li><a href="/tutorials/jdbc-tutorials">Jdbc Tutorials</a></li>
+				          <li><a href="/tutorials/apache-poi-tutorials">Apache POI Tutorials</a></li>				          
+				          
+				        </ul>
+				      </li>
+				      <li class="dropdown">
+				        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Spring Tutorials<b class="caret"></b></a>
+				        <ul class="dropdown-menu">				          				          
+				          <li><a href="/tutorials/spring-tutorials">Spring Tutorials</a></li>
+				          <li><a href="/tutorials/spring-4-tutorials">Spring 4 Tutorials</a></li>
+				          <li><a href="/tutorials/spring-4-mvc-tutorials">Spring 4 MVC Tutorials</a></li>				          
+				          <li><a href="/tutorials/spring-boot-tutorials">Spring Boot Tutorials</a></li>
+				          <li><a href="/tutorials/spring-mongodb-tutorials">Spring MongoDB Tutorials</a></li>
+				        </ul>
+				      </li>
+				    </ul>
+				    
+				    <ul class="nav navbar-nav navbar-right">
+				    				    				    	
+				      <li><a data-toggle="modal" href="#login" data-target="#login">Login</a></li>
+				       <!-- 
+				    	<li><a data-toggle="modal" href="#register" data-target="#register">Register</a></li>
+				    	 -->
+				      
+				    </ul>
+				  </div>
+				</div>
+			</div>
+			
+						<div class="row">
+	<div class="col-lg-8">
+				<div class="row">
+			<article>
+				<header class="hello">
+					<h1>How to Create Key Value Pair Array Using Javascript</h1>
+					<p class="meta"><span class="glyphicon glyphicon-time"></span>&nbsp;Posted On&nbsp;<time>2013-03-01</time>&nbsp;|&nbsp;<a rel="me" href="https://plus.google.com/116241548760694569961?rel=author" target="_blank" title="Google Plus">Yashwant Chavan</a>&nbsp;</span></p>                
+				</header>
+				<div class="hello">
+					<div class="row" style="margin:5px;">
+						<span class='st_fblike_hcount' displayText='Facebook Like'></span>
+						<span class='st_plusone_hcount' displayText='Google +1'></span>
+						<span class='st_facebook_hcount' displayText='Facebook'></span>
+						<span class='st_twitter_hcount' displayText='Tweet'></span>
+					</div>	
+					<p>Our today's article is simple but demanding. Most of the new or experience java-script developer required below code. In this code snippet I have define java-script array values are in the form of key and value.</p>
+					<div>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- mobile-review-page-links -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:90px"
+     data-ad-client="ca-pub-7893183410463407"
+     data-ad-slot="9886912477"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+					</div>
+					<p><h2>Define Employee Array</h2>
+<p>Define key value pair employee object and push it into employees array. In below example we have employee keys say id , name and age with their respective values. To verify it just iterate the employee array and retrieve the each employee value with the help of keys.
+</p>
+<pre class="prettyprint linenums prettyprinted lang-html">
+&lt;html&gt;
+ &lt;head&gt;
+ &lt;script&gt;
+  var employees = [];
+  employees.push({id:100,name:'Yashwant',age:30}); 
+  employees.push({id:200,name:'Mahesh',age:35});
+
+  for(i=0;i&lt;employees.length;i++){
+   alert&#40;"ID:- "  + employees[i].id + " Name:- "  + employees[i].name + " Age:- " + employees[i].age&#41;;
+  }
+
+  &lt;/script&gt;
+ &lt;body&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre>        </p>
+										
+																
+					            
+									
+					
+            </div>
+        </article>
+        </div>
+			</div>
+	<div class="col-lg-4 fixed" >
+		<div style="margin-top:10px;">		
+		<ul style="list-style-type: none;padding:10px;">
+	<li><a href="/tutorials/mongodb-tutorials">Mongodb Tutorials</a></li>
+	<li><a href="/tutorials/nodejs-tutorials">Nodejs Tutorials</a></li>  
+	<li><a href="/tutorials/codeigniter-tutorials">CodeIgniter Tutorials</a></li>
+	<li><a href="/tutorials/java-8-tutorials">Java 8 Tutorials</a></li>
+	<li><a href="/tutorials/spring-4-tutorials">Spring 4 Tutorials</a></li>
+	<li><a href="/tutorials/spring-4-mvc-tutorials">Spring 4 MVC Tutorials</a></li>	
+</ul>
+		</div>
+		<div style="margin-top:10px;">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- RESPONSIVE_2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7893183410463407"
+     data-ad-slot="3512971945"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+		</div>
+		
+		<div style="margin-top:10px;">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- RESPONSIVE_2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7893183410463407"
+     data-ad-slot="3512971945"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+		</div>
+		
+		<div style="margin-top:10px;">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- RESPONSIVE_2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7893183410463407"
+     data-ad-slot="3512971945"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+		</div>
+		
+		
+		
+		
+		
+	</div>
+</div>	
+		    	
+		    		
+										
+					
+					
+				
+			<div class="row">
+			<hr>
+<footer class="text-center"><p>&copy; technicalkeeda.com 2018</p></footer>
+<div class="row">
+	<p class="text-center">
+	<a rel="author" href="/aboutus" title="About us">About us</a>&nbsp;|&nbsp;
+	<a href="https://plus.google.com/101630438296976305163">Find us on Google+</a>&nbsp;|&nbsp;
+	<a href='/feed' title='Subscribe to our rss feed'  target="_blank">Rss Feed</a>
+	</p>
+	<p class="text-center">Loaded in 0.0294 seconds.</p>
+</div>			</div>
+			<div class="modal" id="login">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4>Welcome to technicalkeeda.com</h4>
+        </div>
+        <div class="modal-body">
+			<form class="form-horizontal" role="form" action='/user/login' method="post" name="loginForm">
+			  <div class="form-group">
+			    <label for="email" class="col-lg-4 control-label">Email</label>
+			    <div class="col-lg-6">
+			      <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="password" class="col-lg-4 control-label">Password</label>
+			    <div class="col-lg-6">
+			      <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-lg-offset-4 col-lg-10">
+			      <button type="submit" class="btn btn-primary">Login</button>
+			    </div>
+			  </div>
+			</form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->			<div class="modal" id="register">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4>Register to technicalkeeda.com</h4>
+        </div>
+        <div class="modal-body">
+			<form class="form-horizontal" role="form" action='/user/register' method="post">
+			  <div class="form-group">
+			    <label for="firstName" class="col-lg-4 control-label">First Name</label>
+			    <div class="col-lg-6">
+			      <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="lastName" class="col-lg-4 control-label">Last Name</label>
+			    <div class="col-lg-6">
+			      <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="email" class="col-lg-4 control-label">Email</label>
+			    <div class="col-lg-6">
+			      <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="password" class="col-lg-4 control-label">Password</label>
+			    <div class="col-lg-6">
+			      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-lg-offset-4 col-lg-10">
+			      <button type="submit" class="btn btn-primary">Register</button>
+			    </div>
+			  </div>
+			</form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->		</div>
+		
+	</body>
+</html>

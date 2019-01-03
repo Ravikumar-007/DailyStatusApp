@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Hello {{name}}</h1>
+      <!-- <p>You're logged in as  {{roleType}}</p> -->
+      <form class="form-signin" (ngSubmit)="onDailyStatus()" *ngIf="!isEstimated">
+      
+        <input type="text" class="form-control" [(ngModel)]="dailyStatus.Amount" class="form-control" name="amount" placeholder="Amount To Pay"
+          required autofocus>
+        <br>
+        <select class="form-control" name="amount" [(ngModel)]="dailyStatus.TransactionType">
+          <option value="pm">Paytm</option>
+          <option value="cc">Credit Card</option>
+          <option value="dc">Debit Card/Account</option>
+        </select>
+        <br>
+        <textarea class="form-control" name="amount" placeholder="Remarks" [(ngModel)]="dailyStatus.Remarks"></textarea>
+        <br>
+        <!-- <input type="text" class="form-control" [(ngModel)]="" class="form-control" name="lastName" placeholder="Amount paid" required autofocus><br>
+      <input type="text" class="form-control" [(ngModel)]="" class="form-control" name="userName" placeholder="Payment type" required disabled><br>
+   
+        <input type="hidden" class="form-control" [(ngModel)]="selectedData.id" class="form-control" name="id" ><br> -->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <br>
+
+      </form>
+
+</div>
+<div class="col-md-6" *ngIf="isEstimated && !isSubmited">
+  <form class="form-signin" (ngSubmit)="onEstimatedStatus()">
+      
+    <input type="text" class="form-control" [(ngModel)]="estimateStatus.Amount" class="form-control" name="amount" placeholder="Amount To Pay"
+      required autofocus>
+    <br>
+ 
+    <textarea class="form-control" name="amount" placeholder="Remarks" [(ngModel)]="estimateStatus.Remarks"></textarea>
+    <br>
+  
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    <br>
+
+  </form>
+
+</div>
+
+
+
+<div class="col-md-12">
+
+      <div *ngIf="isSuperAdmin">
+        <button type="button" class="btn btn-primary" (click)="dispalyUsers()">Manage Users</button>
+        <table class="table" *ngIf="manageUsers">
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let item of usersList">
+              <td>{{item.firstName}}</td>
+              <td>{{item.lastName}}</td>
+              <td>{{item.userName}}</td>
+              <td>{{item.isRoleType|rolefilter}}</td>
+              <td>{{item.isActive |userstatusfilter}}</td>
+              <td class="linkHighlated">
+                <a (click)="editSuperAdminData(item)">Edit</a>
+              </td>
+              <td>
+                <a ng-click="">Remove</a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- <pre> {{getUsers|json}}</pre> -->
+      <p>
+        <a [routerLink]="['/login']">Logout</a>
+      </p>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3" *ngIf="selectedData">
+
+      <form class="form-signin" (ngSubmit)="onUpdate()">
+        <input type="text" class="form-control" [(ngModel)]="selectedData.firstName" class="form-control" name="firstName" placeholder="First Name"
+          required autofocus>
+        <br>
+        <input type="text" class="form-control" [(ngModel)]="selectedData.lastName" class="form-control" name="lastName" placeholder="Last Name"
+          required autofocus>
+        <br>
+        <input type="text" class="form-control" [(ngModel)]="selectedData.userName" class="form-control" name="userName" placeholder="user name"
+          required disabled>
+        <br> Status &nbsp;
+        <input type="radio" value="0" name="isActive" (click)="onStatusChange(0)" required [ngModel]="selectedData.isActive"> Not Approve
+        <input type="radio" value="1" name="isActive" (click)="onStatusChange(1)" required [ngModel]="selectedData.isActive"> Approve
+        <br>
+        <br> Role Type &nbsp;
+        <input type="radio" value="1" (click)="onRoleChange(1)" name="isRoleType" required [ngModel]="selectedData.isRoleType">User
+        <input type="radio" value="2" (click)="onRoleChange(2)" name="isRoleType" required [ngModel]="selectedData.isRoleType">Admin
+        <input type="radio" value="3" (click)="onRoleChange(3)" name="isRoleType" required [ngModel]="selectedData.isRoleType"> Super Admin
+        <br>
+        <input type="hidden" class="form-control" [(ngModel)]="selectedData.id" class="form-control" name="id">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+        <br>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+{
+   "checksum": "2a3d73008631d482bb5a8d948f9da6ca",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13176734207496932",
+            "id": "5",
+            "meta_info": {
+               "last_visited_desktop": "13180355277743265"
+            },
+            "name": "Google",
+            "type": "url",
+            "url": "https://www.google.com/"
+         }, {
+            "date_added": "13177314542946359",
+            "id": "7",
+            "meta_info": {
+               "last_visited_desktop": "13177316100150817"
+            },
+            "name": "Mongoose v5.2.5: Query Population",
+            "type": "url",
+            "url": "http://mongoosejs.com/docs/populate.html"
+         }, {
+            "date_added": "13177314668786309",
+            "id": "8",
+            "meta_info": {
+               "last_visited_desktop": "13177314668789261"
+            },
+            "name": "Project Fields to Return from Query — MongoDB Manual",
+            "type": "url",
+            "url": "https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/"
+         } ],
+         "date_added": "13176734129269285",
+         "date_modified": "13177314668786309",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13176734129269292",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13176734129269295",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

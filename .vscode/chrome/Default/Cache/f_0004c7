@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta property='current_user:id'>
+<meta charset="UTF-8" />
+<title>Don&#39;t use Array.forEach, use for() instead (Example)</title>
+<meta name="description" content="A protip by afshinm about performance, loop, and javascript." />
+<meta name="keywords" content="performance, loop, javascript" />
+<link rel="canonical" href="https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead" />
+<link rel="author" href="https://coderwall.com/afshinm" />
+<meta property="og:title" content="Don&#39;t use Array.forEach, use for() instead (Example)" />
+<meta property="og:url" content="https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead" />
+<meta property="og:site_name" content="Coderwall" />
+<meta property="og:description" content="A protip by afshinm about performance, loop, and javascript." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/48316/add92525ab635b5119671269d24c1449.jpeg" />
+<meta name="twitter:title" content="Don&#39;t use Array.forEach, use for() instead (Example)" />
+<meta name="twitter:url" content="https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead" />
+<meta name="twitter:site_name" content="Coderwall" />
+<meta name="twitter:site" content="@coderwall" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator:id" content="711159176" />
+<meta name="twitter:image" content="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/48316/add92525ab635b5119671269d24c1449.jpeg" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" media="all" href="https://d1ujcb8mxkwm85.cloudfront.net/assets/application_static-8cd0567f17b372fd07cb9de3659f01a06b0ac69ab55f9c66d395f0b8ebfe2180.css" data-turbolinks-track="reload" />
+
+<script src="https://d1ujcb8mxkwm85.cloudfront.net/assets/application_static-266474cdd330dfe80db0ca0ad57d94cda4a1e55bc79fa456c078fa9ef9435ec2.js" data-turbolinks-track="reload"></script>
+<script src="https://content.jwplatform.com/libraries/pEaCoeG7.js"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="qvGwptKFuX9eIzchzfbkqMKJn2Qg0qURdx+7Xnl+ydDxgkoW2JHagVcAvrhkpYFlGx3jZ/Kii7QaV1anEILQWw==" />
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-797907-8', 'auto', {'cookieExpires': 0});
+    ga('set', 'anonymizeIp', true);
+  </script>
+
+
+</head>
+<body>
+<div class='clearfix'>
+<header class='border-bottom'>
+<nav class='clearfix py2'>
+<div class='col col-4 sm-col-3 md-col-2'>
+<div class='sm-ml1'>
+<a class='btn logo relative' href='https://coderwall.com/'>
+<div class='absolute' style='top: 2px'>
+<svg version="1.1" viewBox="0 0 20 20" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="5" cy="5" r="1.4142" fill="#A26FF9"/>
+  <circle cx="10" cy="5" r="1.4142" fill="#A26FF9"/>
+  <circle cx="15" cy="5" r="1.4142" fill="#A26FF9"/>
+  <circle cx="10" cy="10" r="1.4142" fill="#A26FF9"/>
+  <circle cx="15" cy="10" r="1.4142" fill="#A26FF9"/>
+  <circle cx="15" cy="15" r="1.4142" fill="#A26FF9"/>
+</svg>
+
+</div>
+<div class='left font-x-lg' style='padding-left: 35px;'>
+Coderwall
+</div>
+</a>
+</div>
+</div>
+<div class='col col-3 sm-col-6 md-col-8 h6'>
+<a class='btn muted-until-hover xs-hide sm-mr1' href='/t/ruby/popular'>Ruby</a>
+<a class='btn muted-until-hover xs-hide' href='/t/python/popular'>Python</a>
+<a class='btn muted-until-hover xs-hide' href='/t/javascript/popular'>JavaScript</a>
+<a class='btn muted-until-hover xs-hide sm-only-hide' href='/t/web/popular'>Front-End</a>
+<a class='btn muted-until-hover xs-hide sm-only-hide' href='/t/tools/popular'>Tools</a>
+<a class='btn muted-until-hover xs-hide sm-only-hide' href='/t/ios/popular'>iOS</a>
+<div class='btn dropdown' style='margin-top: -3px;'>
+<span class='h3 muted-until-hover'>
+<i class="fa fa-sort-down relative xs-hide" style="top: -2px; margin-right: 2px;"></i>
+</span>
+<span class='muted-until-hover xs-ml3'>
+<span class='xs-hide'>More</span>
+Tips
+</span>
+<div class='dropdown-content bg-white mt1 py1 border z4' style='left:0'>
+<a class='btn py1 muted-until-hover sm-hide' href='/t/ruby/popular'>Ruby</a>
+<a class='btn py1 muted-until-hover sm-hide' href='/t/python/popular'>Python</a>
+<a class='btn py1 muted-until-hover sm-hide' href='/t/javascript/popular'>JavaScript</a>
+<a class='btn py1 muted-until-hover md-hide nowrap' href='/t/web/popular'>Front-End</a>
+<a class='btn py1 muted-until-hover md-hide' href='/t/tools/popular'>Tools</a>
+<a class='btn py1 muted-until-hover md-hide' href='/t/ios/popular'>iOS</a>
+<a class='btn py1 muted-until-hover' href='/t/php/popular'>PHP</a>
+<a class='btn py1 muted-until-hover' href='/t/android/popular'>Android</a>
+<a class='btn py1 muted-until-hover' href='/t/dot-net/popular'>.NET</a>
+<a class='btn py1 muted-until-hover' href='/t/java/popular'>Java</a>
+<a class='btn py1 muted-until-hover green md-hide' href='/jobs'>Jobs</a>
+</div>
+</div>
+<a class='btn border-left xs-hide sm-only-hide' href='/jobs'>
+<div class='green'>Jobs</div>
+</a>
+</div>
+<div class='col col-5 sm-col-3 md-col-2'>
+<div class='right pr2'>
+<a class='btn btn-primary bg-purple white ml1' href='/signin'>Sign In or Up</a>
+</div>
+</div>
+</nav>
+</header>
+
+
+<div class='mt1 px3'>
+
+</div>
+<main>
+<div class='py2 px3'><div class='container protip' id='protip_84599' itemid='don-t-use-array-foreach-use-for-instead' itemscope>
+<div class='hide'><time datetime="2018-07-26T12:14:57Z" itemprop="dateModified">July 26, 2018 12:14</time></div>
+<div class='hide' itemprop='name'>kvzbpa</div>
+<div class='clearfix'>
+<div class='sm-col sm-col sm-col-12 md-col-8'>
+<div class='clearfix mt0 mb1'>
+<div class='sm-right'>
+<div class='diminish inline mr1'>Last Updated: July 26, 2018</div>
+<span class='xs-hide'>
+&middot;
+<div class='diminish inline mx1'>
+<i class="fa fa-eye"></i>
+801.3K
+</div>
+</span>
+&middot;
+<span class='mx1'><a href="/afshinm">afshinm</a></span>
+<div class='avatar' itemprop='image' style='background-color: #768b7c;'><img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/48316/add92525ab635b5119671269d24c1449.jpeg" alt="Add92525ab635b5119671269d24c1449" /></div>
+</div>
+</div>
+<div class='card p1' style='border-top:solid 5px #768b7c'>
+<h1 class='mt4 mb2 center' itemprop='headline'>Don&#39;t use Array.forEach, use for() instead</h1>
+<div class='center mr1' itemprop='keywords'>
+<h6 class='diminish inline px1'><a href="/t/performance/popular">performance</a></h6>
+<h6 class='diminish inline px1'><a href="/t/loop/popular">loop</a></h6>
+<h6 class='diminish inline px1'><a href="/t/javascript/popular">javascript</a></h6>
+</div>
+<div class='content p3 mt4' itemprop='articleBody'>
+<p><strong>Array.ForEach</strong> is about 95% slower than <strong>for()</strong> in for each for Arrays in JavaScript. </p>&#x000A;&#x000A;<p>So, don't use:</p>&#x000A;&#x000A;<pre><code class="prettyprint">arr.forEach(function (item) {&#x000A;  someFn(item);&#x000A;})</code></pre>&#x000A;&#x000A;<p>Use:</p>&#x000A;&#x000A;<pre><code class="prettyprint">for (var i = 0, len = arr.length; i &lt; len; i++) {&#x000A;  someFn(arr[i]);&#x000A;}</code></pre>&#x000A;&#x000A;<p>See this performance test online: <a href="http://jsperf.com/fast-array-foreach" rel="nofollow">http://jsperf.com/fast-array-foreach</a></p>
+</div>
+<div class='clearfix mt1 mb3 mx2 py2'>
+<div class='clearfix border-bottom' itemprop='author'>
+<h4>
+Written by
+<a class='bold user' href='/afshinm' id='user_48316' itemid='48316' itemscope itemtype='http://schema.org/Person'>
+<span class='blue' itemprop='name'>Afshin Mehrabani</span>
+</a>
+</h4>
+</div>
+<div class='clearfix mt1'>
+<div class='btn btn-small pl0 mr1 mb1 xs-block'>
+<script type="application/json" id="js-react-on-rails-context">{"inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","href":"https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead","location":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","scheme":"https","host":"coderwall.com","port":null,"pathname":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","search":null,"httpAcceptLanguage":"pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7","pusherKey":"56c8c9e2d013d4e9f315","user":null,"serverSide":false}</script>
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-2f8ffaf9-f5e5-4fa3-aed0-dd620b95bbb3">{"heartableId":"protip_84599","href":"/p/kvzbpa/likes","labels":["Recommend","Recommended"]}</script>
+    <div id="HeartButton-react-component-2f8ffaf9-f5e5-4fa3-aed0-dd620b95bbb3"></div>
+    
+
+</div>
+<a class='btn btn-small pl0 mb1 mr1 xs-block' href='http://twitter.com/home?status=Don%27t+use+Array.forEach%2C+use+for%28%29+instead+by+%40afshinmeh%0A%0Ahttps%3A%2F%2Fcoderwall.com%2Fp%2Fkvzbpa' target='twitter'>
+<span class='fixed-space-4'><i class="fa fa-twitter aqua h4"></i></span>
+<span>Say Thanks</span>
+</a>
+<div class='btn btn-small pl0 mb1 mr1 xs-block'>
+<script type="application/json" class="js-react-on-rails-component" data-component-name="ProtipSubscribeButton" data-dom-id="ProtipSubscribeButton-react-component-3cc0810c-ac08-4074-82bc-a6504f852242">{}</script>
+    <div id="ProtipSubscribeButton-react-component-3cc0810c-ac08-4074-82bc-a6504f852242"></div>
+    
+
+</div>
+<a class='btn btn-small pl0 mb1 mr1 xs-block' href='/signup'>
+<span class='fixed-space-4'><i class="fa fa-comment-o black h4"></i></span>
+Respond
+</a>
+</div>
+</div>
+<div class='clearfix'>
+<div class='clearfix mt3 px2'>
+<h4>
+49 Responses
+<div class='right hide'>
+<div class='btn btn-small green'>Add your response</div>
+</div>
+</h4>
+<div class='border-top comment inline-block mb1 py1' id='comment_2110' itemid='2110' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2012-12-02T12:07:16Z" itemprop="datePublished">December 02, 2012 12:07</time></div>
+<div class='hide' itemprop='name'>2110</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #c05a73;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/avenger7x' itemprop='alternateName'>
+avenger7x
+</a>
+</div>
+<div class='content small' itemprop='text'><p>In first example you can write something like this:</p>&#x000A;&#x000A;<pre><code class="prettyprint">arr.forEach(someFn);</code></pre>&#x000A;&#x000A;<p>It's really useful. <br>&#x000A;In some cases you'll realy need to use forEach method. For example, if you need a closure for your loop.</p>&#x000A;&#x000A;<pre><code class="prettyprint">elements.forEach(function(element){&#x000A;  var attribute = element.getAttribute('data-attr');&#x000A;  element.onclick = function(){&#x000A;    alert(attribute);&#x000A;  };&#x000A;});</code></pre></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-6c878272-dc2d-4fe7-a7e4-8e1e2cc6c811">{"heartableId":"comment_2110","href":"/comments/2110/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-6c878272-dc2d-4fe7-a7e4-8e1e2cc6c811"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_2112' itemid='2112' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2012-12-02T12:10:00Z" itemprop="datePublished">December 02, 2012 12:10</time></div>
+<div class='hide' itemprop='name'>2112</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #768b7c;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/48316/add92525ab635b5119671269d24c1449.jpeg" alt="Add92525ab635b5119671269d24c1449" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/afshinm' itemprop='alternateName'>
+afshinm
+</a>
+</div>
+<div class='content small' itemprop='text'><p><a href="/avenger7x">@avenger7x</a> Sure, yes. I forgot to mention when we need to use <code class="prettyprint">forEach</code> but in some cases that I saw in applications, it uses incorrectly and only because it's easy-to-use.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-83854492-61f1-42b0-a18a-bc2c7f477d27">{"heartableId":"comment_2112","href":"/comments/2112/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-83854492-61f1-42b0-a18a-bc2c7f477d27"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_2116' itemid='2116' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2012-12-02T12:29:19Z" itemprop="datePublished">December 02, 2012 12:29</time></div>
+<div class='hide' itemprop='name'>2116</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #f7ba1a;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/43518/81829def637962204635704c091036ea.jpg" alt="81829def637962204635704c091036ea" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/mlb' itemprop='alternateName'>
+mlb
+</a>
+</div>
+<div class='content small' itemprop='text'><p>for loops are really annoying when you're trying to build something complex, maintainability becomes harder, I think that there is a third solution <a href="http://mlb.tl/LIFL" rel="nofollow">http://mlb.tl/LIFL</a> which is faster than forEach and still keeps a nice FP &amp; OO coding-style. </p>&#x000A;&#x000A;<p>Otherwise I agree that for small scripts, a good old for loop can be accurate. </p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-013c35d1-e6ea-448c-85a9-08c2fb5aadb7">{"heartableId":"comment_2116","href":"/comments/2116/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-013c35d1-e6ea-448c-85a9-08c2fb5aadb7"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_2119' itemid='2119' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2012-12-02T12:42:33Z" itemprop="datePublished">December 02, 2012 12:42</time></div>
+<div class='hide' itemprop='name'>2119</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #768b7c;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/48316/add92525ab635b5119671269d24c1449.jpeg" alt="Add92525ab635b5119671269d24c1449" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/afshinm' itemprop='alternateName'>
+afshinm
+</a>
+</div>
+<div class='content small' itemprop='text'><p><a href="/mlb">@mlb</a> Hey Thanks, good alternative solution.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-30d5b3ac-77a5-44ba-b8b8-477242116701">{"heartableId":"comment_2119","href":"/comments/2119/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-30d5b3ac-77a5-44ba-b8b8-477242116701"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_5778' itemid='5778' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2013-04-20T13:05:14Z" itemprop="datePublished">April 20, 2013 13:05</time></div>
+<div class='hide' itemprop='name'>5778</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #932584;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/william_malo' itemprop='alternateName'>
+william_malo
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Hello!<br>&#x000A;This is faster:<br>&#x000A;Array.prototype.forEach2=function(a){<br>&#x000A;      var l=this.length;<br>&#x000A;      for(var i=0;i&lt;l;i++)a(this[i],i)<br>&#x000A;    }<br>&#x000A;<a href="http://jsperf.com/sdngjkn" rel="nofollow">http://jsperf.com/sdngjkn</a></p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-fe946b2f-3edc-4dd4-b204-916949407f2e">{"heartableId":"comment_5778","href":"/comments/5778/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-fe946b2f-3edc-4dd4-b204-916949407f2e"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_6538' itemid='6538' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2013-05-23T01:49:11Z" itemprop="datePublished">May 23, 2013 01:49</time></div>
+<div class='hide' itemprop='name'>6538</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #ccf0d1;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/68993/388d93e.jpg" alt="388d93e" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/uxdesigner' itemprop='alternateName'>
+uxdesigner
+</a>
+</div>
+<div class='content small' itemprop='text'><p>One other reason not to use Array.forEach is that it is not supported by IE8. </p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-fb20343d-158b-46b4-88df-11a92e041c99">{"heartableId":"comment_6538","href":"/comments/6538/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-fb20343d-158b-46b4-88df-11a92e041c99"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_13714' itemid='13714' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2014-03-26T13:35:36Z" itemprop="datePublished">March 26, 2014 13:35</time></div>
+<div class='hide' itemprop='name'>13714</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #a4602a;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/59319/3db39d82aa8ef1ed48d4864fa8914613.jpeg" alt="3db39d82aa8ef1ed48d4864fa8914613" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/drhelmut' itemprop='alternateName'>
+drhelmut
+</a>
+</div>
+<div class='content small' itemprop='text'><p>lol. Since when IE8 is supposed to rule our choices ? <br>&#x000A;The fact that IE8 doesn't support Array.forEach really means this bowser is deep shit, that's all ! ;)</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-fe9346c6-cba2-4e26-9be2-4dff3b0a53be">{"heartableId":"comment_13714","href":"/comments/13714/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-fe9346c6-cba2-4e26-9be2-4dff3b0a53be"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_14871' itemid='14871' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2014-05-28T15:55:20Z" itemprop="datePublished">May 28, 2014 15:55</time></div>
+<div class='hide' itemprop='name'>14871</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #75dd48;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/109324/0_5P24iI3mI4RR-mb4FqfbieCYIxuRKe94FN4bie3aqsZI723ZdvpqSHvhLA2X17cqkKa62fxg1lPP.jpeg" alt="0 5p24ii3mi4rr mb4fqfbiecyixurke94fn4bie3aqszi723zdvpqshvhla2x17cqkka62fxg1lpp" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/juanmendes' itemprop='alternateName'>
+juanmendes
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Micro premature optimization is the root of so many evils. The rule is don't use it in a tight loop. Anywhere else, it will never matter. DOM maintenance is where you should optimize.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-f7f365f6-64a6-4701-b3cd-59eee684a9d9">{"heartableId":"comment_14871","href":"/comments/14871/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-f7f365f6-64a6-4701-b3cd-59eee684a9d9"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_17942' itemid='17942' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2014-12-30T15:33:27Z" itemprop="datePublished">December 30, 2014 15:33</time></div>
+<div class='hide' itemprop='name'>17942</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #96208b;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/71719/4f7e8e1c71f327206af087394ba0ce30.jpeg" alt="4f7e8e1c71f327206af087394ba0ce30" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/yckart' itemprop='alternateName'>
+yckart
+</a>
+</div>
+<div class='content small' itemprop='text'><blockquote>&#x000A;<p>One other reason to use Array.forEach is that it is not supported by IE8. ;-)</p>&#x000A;</blockquote></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-95c6bd4a-d6a2-45ac-8904-8d83240a427d">{"heartableId":"comment_17942","href":"/comments/17942/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-95c6bd4a-d6a2-45ac-8904-8d83240a427d"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_19298' itemid='19298' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2015-04-02T13:48:33Z" itemprop="datePublished">April 02, 2015 13:48</time></div>
+<div class='hide' itemprop='name'>19298</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #328d33;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/129575/none.jpg" alt="None" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/fed135' itemprop='alternateName'>
+fed135
+</a>
+</div>
+<div class='content small' itemprop='text'><p>JSPerf is a double-edged sword, you really need to start thinking about what it does and how it can return confusing results. Furthermore, 95% slower is practically NOTHING in terms of JS performances. What you need to focus on is Draw counts (if you are working the canvas) or plain DOM updates. Check out this great speak on micro-optimizations: <a href="https://www.youtube.com/watch?v=65-RbBwZQdU" rel="nofollow">https://www.youtube.com/watch?v=65-RbBwZQdU</a></p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-13d39799-67d6-4626-ac93-7b3b61bff11c">{"heartableId":"comment_19298","href":"/comments/19298/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-13d39799-67d6-4626-ac93-7b3b61bff11c"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_20316' itemid='20316' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2015-04-21T17:16:55Z" itemprop="datePublished">April 21, 2015 17:16</time></div>
+<div class='hide' itemprop='name'>20316</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #cebc2a;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/130597/none.jpg" alt="None" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/ntg' itemprop='alternateName'>
+ntg
+</a>
+</div>
+<div class='content small' itemprop='text'><p><a href="/william_malo">@william_malo</a>, your test is misleading.  Your vanilla javascript for loop was not actually calling the function, but merely running the guts of the function within the loop.  Here is a more accurate test: <a href="http://jsperf.com/sdngjkn/19" rel="nofollow">http://jsperf.com/sdngjkn/19</a></p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-f1957c5b-6fba-4197-a4d7-82fa2c7c6160">{"heartableId":"comment_20316","href":"/comments/20316/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-f1957c5b-6fba-4197-a4d7-82fa2c7c6160"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_20907' itemid='20907' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2015-05-19T04:38:20Z" itemprop="datePublished">May 19, 2015 04:38</time></div>
+<div class='hide' itemprop='name'>20907</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #a060a8;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/92643/36b0338fc781b0572198e33531d2bc17.jpeg" alt="36b0338fc781b0572198e33531d2bc17" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/ryanpcmcquen' itemprop='alternateName'>
+ryanpcmcquen
+</a>
+</div>
+<div class='content small' itemprop='text'><p>In your test and in ntg's, forEach was the fastest in Firefox 38 on 64-bit Linux (Slackware).</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-9d4a3734-0ff1-44fd-815f-dd5be7e43eb0">{"heartableId":"comment_20907","href":"/comments/20907/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-9d4a3734-0ff1-44fd-815f-dd5be7e43eb0"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_23831' itemid='23831' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2015-10-29T13:29:30Z" itemprop="datePublished">October 29, 2015 13:29</time></div>
+<div class='hide' itemprop='name'>23831</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #18f2e4;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/137495/none.jpg" alt="None" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/paullow' itemprop='alternateName'>
+paullow
+</a>
+</div>
+<div class='content small' itemprop='text'><p>for() loop runs in sync mode, it is too bad for a js application, if you are programming a js app, you'd better use Array.forEach, it runs in async mode, else you won'd go far.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-d1d2ca12-6936-416c-97b6-c25ee1c77dc3">{"heartableId":"comment_23831","href":"/comments/23831/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-d1d2ca12-6936-416c-97b6-c25ee1c77dc3"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_26560' itemid='26560' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-02-08T23:13:20Z" itemprop="datePublished">February 08, 2016 23:13</time></div>
+<div class='hide' itemprop='name'>26560</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #71b206;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/140771/none.jpg" alt="None" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/edwardintoronto' itemprop='alternateName'>
+edwardintoronto
+</a>
+</div>
+<div class='content small' itemprop='text'><p><a href="/paullow">@paullow</a><br>&#x000A;both for and foreach are synchronous.<br>&#x000A;<a href="http://stackoverflow.com/questions/5050265/javascript-node-js-is-array-foreach-asynchronous" rel="nofollow">http://stackoverflow.com/questions/5050265/javascript-node-js-is-array-foreach-asynchronous</a></p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-3bdbbbb7-01a0-4d0f-861f-87c00e293f06">{"heartableId":"comment_26560","href":"/comments/26560/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-3bdbbbb7-01a0-4d0f-861f-87c00e293f06"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_27039' itemid='27039' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-02-28T08:51:12Z" itemprop="datePublished">February 28, 2016 08:51</time></div>
+<div class='hide' itemprop='name'>27039</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #d7a4e0;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/8845/000f45b685d4d6ff1a171676512c382e.jpeg" alt="000f45b685d4d6ff1a171676512c382e" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/Paxa' itemprop='alternateName'>
+Paxa
+</a>
+</div>
+<div class='content small' itemprop='text'><p>There is a difference between for and forEach. <code class="prettyprint">for</code> will local reassign variable for every run, while <code class="prettyprint">forEach</code> will create new variable. Example:</p>&#x000A;&#x000A;<pre><code class="prettyprint">var links = document.getElementsByTagName('a');&#x000A;for(var i = 0; i &lt; links.length; i++) {&#x000A;  var element = links[i];&#x000A;  element.addEventListener('click', function () {&#x000A;    alert(element.innerText); // you think it will be element you clicked on? It will be last element in array&#x000A;  });&#x000A;}</code></pre></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-a23456ec-1dc7-4b56-aa1c-514ed5f6b0c5">{"heartableId":"comment_27039","href":"/comments/27039/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-a23456ec-1dc7-4b56-aa1c-514ed5f6b0c5"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_27355' itemid='27355' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-03-13T15:28:25Z" itemprop="datePublished">March 13, 2016 15:28</time></div>
+<div class='hide' itemprop='name'>27355</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #CC0000;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/9034/IMG-20151108-WA0019.jpg" alt="Img 20151108 wa0019" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/joanllenas' itemprop='alternateName'>
+joanllenas
+</a>
+</div>
+<div class='content small' itemprop='text'><p>The main reason for using <code class="prettyprint">for</code> loops over <code class="prettyprint">Array.forEach</code> is that you cannot <code class="prettyprint">break</code> the latter. Other than that, I prefer the <code class="prettyprint">Array.forEach</code> semantics. If performance degradation is really noticeable I will take into account your suggestion. Thank you.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-7cd59621-0938-4c5f-b1b4-74b888a457c8">{"heartableId":"comment_27355","href":"/comments/27355/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-7cd59621-0938-4c5f-b1b4-74b888a457c8"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_27419' itemid='27419' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-03-17T14:34:05Z" itemprop="datePublished">March 17, 2016 14:34</time></div>
+<div class='hide' itemprop='name'>27419</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #28cfe4;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/141878/PoyoTHUMB.jpeg" alt="Poyothumb" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/manchicken' itemprop='alternateName'>
+manchicken
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Note that this is only for ES5 in a browser. If you've got ES6 then you'll want to use <code class="prettyprint">for ( X of arr ) { ... }</code>.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-6f3ac3ad-be1c-44bd-85cc-1b9a830a2d6f">{"heartableId":"comment_27419","href":"/comments/27419/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-6f3ac3ad-be1c-44bd-85cc-1b9a830a2d6f"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_27469' itemid='27469' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-04-01T16:39:14Z" itemprop="datePublished">April 01, 2016 16:39</time></div>
+<div class='hide' itemprop='name'>27469</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #bad2cc;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/shirian' itemprop='alternateName'>
+shirian
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Don't forget to weigh performance against legibility/maintainability. As juanmendes said, premature optimization can yield problems.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-fef8f65b-1091-445b-923c-85cb7092022c">{"heartableId":"comment_27469","href":"/comments/27469/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-fef8f65b-1091-445b-923c-85cb7092022c"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_27609' itemid='27609' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-05-12T15:47:55Z" itemprop="datePublished">May 12, 2016 15:47</time></div>
+<div class='hide' itemprop='name'>27609</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #e19b18;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/KirbyWallace' itemprop='alternateName'>
+KirbyWallace
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Personal opinion, here, but I think there is a larger issue being overlooked here.</p>&#x000A;&#x000A;<p>The purpose of either for() or .forEach() is presumably to actually do something with each of the array elements.  Simply comparing the two method's speed, divorced from actually doing anything inside their loops is a rather meaningless comparison.  The work being done inside the loop of each method is going to dwarf the execution speed of the looping mechanism itself, almost to the point of irrelevance.</p>&#x000A;&#x000A;<p>By the time you add a simple database lookup, and a printf(), 99.9% of the time is going to be spent on the work, and 0.1% of the time is consumed by the actual looping mechanism overhead.</p>&#x000A;&#x000A;<p>If you had a million array elements to iterate, and nothing more than "i++;" inside the loop, then yeah, maybe the benefits of for() over .forEach() might be worth considering.  But this is rarely the case.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-742f724a-2b40-4490-9d10-3be6d1787d12">{"heartableId":"comment_27609","href":"/comments/27609/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-742f724a-2b40-4490-9d10-3be6d1787d12"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_27822' itemid='27822' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-06-30T12:21:48Z" itemprop="datePublished">June 30, 2016 12:21</time></div>
+<div class='hide' itemprop='name'>27822</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #c71798;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/82479/identicon.png" alt="Identicon" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/helpermethod' itemprop='alternateName'>
+helpermethod
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Or use lodash's <code class="prettyprint">forEach</code> implementation which is about as performant as the plain for loop.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-d7833079-3168-4622-a30f-f590a8ed2293">{"heartableId":"comment_27822","href":"/comments/27822/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-d7833079-3168-4622-a30f-f590a8ed2293"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28224' itemid='28224' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-10-10T08:53:48Z" itemprop="datePublished">October 10, 2016 08:53</time></div>
+<div class='hide' itemprop='name'>28224</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #519c1d;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/145273/Gade_Cosmetics.jpg" alt="Gade cosmetics" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/gadecosmetics' itemprop='alternateName'>
+gadecosmetics
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Thanks for sharing a useful information.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-bda2d09f-ee49-44be-8ffd-fecb231ce3b6">{"heartableId":"comment_28224","href":"/comments/28224/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-bda2d09f-ee49-44be-8ffd-fecb231ce3b6"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28239' itemid='28239' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-10-13T04:16:28Z" itemprop="datePublished">October 13, 2016 04:16</time></div>
+<div class='hide' itemprop='name'>28239</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #b0df17;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/131017/my-stupid-face.jpg" alt="My stupid face" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/the-simian' itemprop='alternateName'>
+the-simian
+</a>
+</div>
+<div class='content small' itemprop='text'><p>This is a terrible tip and I'll explain why.</p>&#x000A;&#x000A;<ul>&#x000A;<li>Javascript has <em>functions as a first class citizen</em>. each/forEach is only slower because it creates a lexical scope around each loop iteration. In practice this is usually what you want.</li>&#x000A;<li>9/10 times you really want .map. You're probably looping in order to transform data.</li>&#x000A;<li>loops favor side effects over pure functions. this means reaching into other scopes, and unpredictability. .map and functional approaches are objectively easier to test</li>&#x000A;<li>if you have code where you are iterating so much that a for loop performance over map is so significant, you probably need to download lodash anyways.</li>&#x000A;<li>if you really, really really must loop. (note: you probably don't) do NOT evaluate length in the iterator!! that gets called every time!</li>&#x000A;<li>and if you REALLY must loop a while with a -- decrementor is actually even faster. Following the guidelines of asm.js are even better than that..Again, you probably do not need this in everyday practice, the tradeoof for testability and readability is not usually worth it.</li>&#x000A;</ul>&#x000A;&#x000A;<p>Don't use loops. Don't use each. Use pure functions with no side effects. Map, filter, reduce. </p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-c09d491d-c02d-47a3-afd2-bcf6d3510e73">{"heartableId":"comment_28239","href":"/comments/28239/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-c09d491d-c02d-47a3-afd2-bcf6d3510e73"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28273' itemid='28273' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-10-28T09:01:24Z" itemprop="datePublished">October 28, 2016 09:01</time></div>
+<div class='hide' itemprop='name'>28273</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #5fc20d;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/stdio' itemprop='alternateName'>
+stdio
+</a>
+</div>
+<div class='content small' itemprop='text'><p>In My tests performance for forEach, is similar to (for(;;) loops, in smaller arrays, forEach is even faster,   (for of) is the slowest unfortunately</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-ef00a016-dd2c-40bd-ade4-fcab6b6f2307">{"heartableId":"comment_28273","href":"/comments/28273/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-ef00a016-dd2c-40bd-ade4-fcab6b6f2307"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28324' itemid='28324' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-11-16T13:59:55Z" itemprop="datePublished">November 16, 2016 13:59</time></div>
+<div class='hide' itemprop='name'>28324</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #af71ef;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/47304/8c925222cb16151bbeeeb921600b15eb.jpg" alt="8c925222cb16151bbeeeb921600b15eb" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/franciskim' itemprop='alternateName'>
+franciskim
+</a>
+</div>
+<div class='content small' itemprop='text'><p>I would use Array.forEach over for() any day.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-3657b5aa-f563-48b9-9019-8ffbc50baeab">{"heartableId":"comment_28324","href":"/comments/28324/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-3657b5aa-f563-48b9-9019-8ffbc50baeab"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28335' itemid='28335' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-11-23T14:53:59Z" itemprop="datePublished">November 23, 2016 14:53</time></div>
+<div class='hide' itemprop='name'>28335</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #df06c2;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/atkinchris' itemprop='alternateName'>
+atkinchris
+</a>
+</div>
+<div class='content small' itemprop='text'><p><a href="/the-simian">@the-simian</a>, caching <code class="prettyprint">array.length</code> outside of the iterator and reverse/decrementing loops are no longer necessarily faster. Reasonably modern JavaScript engines automatically optimise established patterns, such as forward loops and evaluating <code class="prettyprint">length</code>  - writing them in an "optimised way" prematurely simply adds confusion.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-773b63cb-34fe-418f-9c19-ced28015c7a8">{"heartableId":"comment_28335","href":"/comments/28335/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-773b63cb-34fe-418f-9c19-ced28015c7a8"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28355' itemid='28355' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-12-01T09:30:18Z" itemprop="datePublished">December 01, 2016 09:30</time></div>
+<div class='hide' itemprop='name'>28355</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #a55523;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/JLeung' itemprop='alternateName'>
+JLeung
+</a>
+</div>
+<div class='content small' itemprop='text'><p>I also make a compare test with native loop, native foreach, lodash foreach and underscoure foreach.<br>&#x000A;<a href="https://jsperf.com/for-loop-test-more" rel="nofollow">https://jsperf.com/for-loop-test-more</a><br>&#x000A;FYR</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-3c9548f8-c4d5-45f5-835b-31dcb52daf07">{"heartableId":"comment_28355","href":"/comments/28355/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-3c9548f8-c4d5-45f5-835b-31dcb52daf07"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28370' itemid='28370' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-12-09T08:50:04Z" itemprop="datePublished">December 09, 2016 08:50</time></div>
+<div class='hide' itemprop='name'>28370</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #c90dc3;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/syifaazzahra' itemprop='alternateName'>
+syifaazzahra
+</a>
+</div>
+<div class='content small' itemprop='text'><p>for loops are really annoying when you're trying to build something complex, maintainability becomes harder, I think that there is a third solution <a href="http://gastrichealthtablet.org" rel="nofollow">http://gastrichealthtablet.org</a> <a href="http://triflexcapsule.com" rel="nofollow">http://triflexcapsule.com</a></p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-83a97340-b066-4f1b-9115-0dde90c65fe7">{"heartableId":"comment_28370","href":"/comments/28370/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-83a97340-b066-4f1b-9115-0dde90c65fe7"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28376' itemid='28376' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2016-12-12T12:30:52Z" itemprop="datePublished">December 12, 2016 12:30</time></div>
+<div class='hide' itemprop='name'>28376</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #432c66;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/khangal' itemprop='alternateName'>
+khangal
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Premature optimization!!!</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" id="js-react-on-rails-context">{"inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","href":"https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead","location":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","scheme":"https","host":"coderwall.com","port":null,"pathname":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","search":null,"httpAcceptLanguage":"en-US,en;q=0.5","pusherKey":"56c8c9e2d013d4e9f315","user":null,"serverSide":false}</script>
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-c0852437-6a6c-4cb0-83e7-d32c2ae82c17">{"heartableId":"comment_28376","href":"/comments/28376/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-c0852437-6a6c-4cb0-83e7-d32c2ae82c17"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28501' itemid='28501' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-01-15T21:03:46Z" itemprop="datePublished">January 15, 2017 21:03</time></div>
+<div class='hide' itemprop='name'>28501</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #1fd177;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/jad96' itemprop='alternateName'>
+jad96
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Thanks</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-0b52edbb-612f-417f-86fa-a26a973b0083">{"heartableId":"comment_28501","href":"/comments/28501/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-0b52edbb-612f-417f-86fa-a26a973b0083"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28545' itemid='28545' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-01-29T19:45:16Z" itemprop="datePublished">January 29, 2017 19:45</time></div>
+<div class='hide' itemprop='name'>28545</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #178dd0;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/110815/d532bee598a8e88d9c23274cfc0c0209.jpeg" alt="D532bee598a8e88d9c23274cfc0c0209" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/crvst' itemprop='alternateName'>
+crvst
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Don't use for(), because it is ugly</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-f4c921da-1774-4d47-b534-c954b89f283b">{"heartableId":"comment_28545","href":"/comments/28545/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-f4c921da-1774-4d47-b534-c954b89f283b"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28612' itemid='28612' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-02-16T08:00:34Z" itemprop="datePublished">February 16, 2017 08:00</time></div>
+<div class='hide' itemprop='name'>28612</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #4bd59c;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/aderis' itemprop='alternateName'>
+aderis
+</a>
+</div>
+<div class='content small' itemprop='text'><p>thank you for allowing us to share information.<br>&#x000A;hopefully we are all in the given smoothness<br>&#x000A;<a href="http://www.rajanyaobatherbal.com/" rel="nofollow">http://www.rajanyaobatherbal.com/</a></p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-97736546-0cce-45d7-86db-df3e6cfcfbad">{"heartableId":"comment_28612","href":"/comments/28612/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-97736546-0cce-45d7-86db-df3e6cfcfbad"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28651' itemid='28651' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-02-26T16:50:57Z" itemprop="datePublished">February 26, 2017 16:50</time></div>
+<div class='hide' itemprop='name'>28651</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #517efb;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/RufusVS' itemprop='alternateName'>
+RufusVS
+</a>
+</div>
+<div class='content small' itemprop='text'><p>I think the description here is incorrect.  It is not 95% slower. That would mean it runs 1/20 of the speed of the other.   It is "...95% as fast..." or "...5% slower..." (which is the terminology used in the test link).</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-e8e9a77c-fd32-43c3-aee5-3bb73a43c71c">{"heartableId":"comment_28651","href":"/comments/28651/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-e8e9a77c-fd32-43c3-aee5-3bb73a43c71c"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_28720' itemid='28720' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-03-14T14:11:07Z" itemprop="datePublished">March 14, 2017 14:11</time></div>
+<div class='hide' itemprop='name'>28720</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #3c6a5b;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/jbeninger' itemprop='alternateName'>
+jbeninger
+</a>
+</div>
+<div class='content small' itemprop='text'><p>This appears to no longer be true.  The jsperf link showed for/forEach take about the same time in FF51.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" id="js-react-on-rails-context">{"inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","href":"https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead","location":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","scheme":"https","host":"coderwall.com","port":null,"pathname":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","search":null,"httpAcceptLanguage":"en-US,en;q=0.9","pusherKey":"56c8c9e2d013d4e9f315","user":null,"serverSide":false}</script>
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-d03cf9a9-f214-4638-8ead-1a09a8e5c292">{"heartableId":"comment_28720","href":"/comments/28720/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-d03cf9a9-f214-4638-8ead-1a09a8e5c292"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29008' itemid='29008' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-06-05T14:35:13Z" itemprop="datePublished">June 05, 2017 14:35</time></div>
+<div class='hide' itemprop='name'>29008</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #0e1ca3;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/153352/konstrukt.png" alt="Konstrukt" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/Konstrukt' itemprop='alternateName'>
+Konstrukt
+</a>
+</div>
+<div class='content small' itemprop='text'><p>This is valid only if you experience real performance problems. If not, it is premature optimisation at its best (or worst :) ). Main question here - what is more expensive to the company: code, running some miliseconds or microseconds slower, or the developers, spending minutes =&gt; hours =&gt; days reading it, trying to figure what all these loops all over the project actually do. :) Remember, we spend more time reading code, than writing it.<br>&#x000A;Actually, the example makes me want rewrite it to use map or reduce, instead of forEach (depending of what someFn does), but that's another story.</p></div>
+<div class='diminish mt1'>
+over 1 year ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-03f1ce50-a21b-457f-82c4-be32a9ac6407">{"heartableId":"comment_29008","href":"/comments/29008/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-03f1ce50-a21b-457f-82c4-be32a9ac6407"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29196' itemid='29196' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-08-15T08:52:16Z" itemprop="datePublished">August 15, 2017 08:52</time></div>
+<div class='hide' itemprop='name'>29196</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #e29fa9;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/Wahlbarg' itemprop='alternateName'>
+Wahlbarg
+</a>
+</div>
+<div class='content small' itemprop='text'><p>How about WHILE () {}??</p></div>
+<div class='diminish mt1'>
+12 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-ae552b58-3012-41ba-b75e-17091c42032a">{"heartableId":"comment_29196","href":"/comments/29196/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-ae552b58-3012-41ba-b75e-17091c42032a"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29294' itemid='29294' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-09-14T09:36:36Z" itemprop="datePublished">September 14, 2017 09:36</time></div>
+<div class='hide' itemprop='name'>29294</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #5ea688;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/michaelCaley' itemprop='alternateName'>
+michaelCaley
+</a>
+</div>
+<div class='content small' itemprop='text'><p><a href="/avenger7x">@avenger7x</a> you could still have a closure with a for loop if you make the function outside the for loop</p></div>
+<div class='diminish mt1'>
+11 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-99b6dbcf-26cc-4f97-9e68-bce2ef900647">{"heartableId":"comment_29294","href":"/comments/29294/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-99b6dbcf-26cc-4f97-9e68-bce2ef900647"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29325' itemid='29325' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-09-26T16:28:16Z" itemprop="datePublished">September 26, 2017 16:28</time></div>
+<div class='hide' itemprop='name'>29325</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #28c933;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/ys' itemprop='alternateName'>
+ys
+</a>
+</div>
+<div class='content small' itemprop='text'><p><a href="/the-simian">@the-simian</a> I agree with you so much!</p></div>
+<div class='diminish mt1'>
+10 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-92f20103-fc8c-43e3-a488-d805e4416214">{"heartableId":"comment_29325","href":"/comments/29325/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-92f20103-fc8c-43e3-a488-d805e4416214"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29375' itemid='29375' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-10-21T20:01:59Z" itemprop="datePublished">October 21, 2017 20:01</time></div>
+<div class='hide' itemprop='name'>29375</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #98e6f3;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/dysonlu' itemprop='alternateName'>
+dysonlu
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Do yourself a favor as a coder and DO NOT follow this "tip".  Instead, read the-simian's comment.<br>&#x000A;Rule #1 in coding: do not attempt premature optimization, favor code clarity and simplicity.</p></div>
+<div class='diminish mt1'>
+9 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-b5818b7d-9086-4a17-99d1-0a3469108ee7">{"heartableId":"comment_29375","href":"/comments/29375/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-b5818b7d-9086-4a17-99d1-0a3469108ee7"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29389' itemid='29389' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-10-26T21:38:31Z" itemprop="datePublished">October 26, 2017 21:38</time></div>
+<div class='hide' itemprop='name'>29389</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #ea7835;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/Chamie' itemprop='alternateName'>
+Chamie
+</a>
+</div>
+<div class='content small' itemprop='text'><p><strong>joanllenas</strong>, you don't need a <code class="prettyprint">break</code> in <code class="prettyprint">.forEach()</code>. Because you use it as the name says — when you want your function to be executed against <em>each</em> element of array. If you want it to be executed only again <em>some</em> of them, there's a method called exactly like that — <code class="prettyprint">.some()</code> (see Array.prototype.some).</p></div>
+<div class='diminish mt1'>
+9 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-86e34033-37f3-41a1-863b-15ab20853a36">{"heartableId":"comment_29389","href":"/comments/29389/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-86e34033-37f3-41a1-863b-15ab20853a36"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29457' itemid='29457' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-11-24T04:24:16Z" itemprop="datePublished">November 24, 2017 04:24</time></div>
+<div class='hide' itemprop='name'>29457</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #657804;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/informagenie' itemprop='alternateName'>
+informagenie
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Thank you for this share</p></div>
+<div class='diminish mt1'>
+8 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-a43d6f85-580f-4d27-80d2-d6b0d83a8765">{"heartableId":"comment_29457","href":"/comments/29457/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-a43d6f85-580f-4d27-80d2-d6b0d83a8765"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29501' itemid='29501' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2017-12-19T00:27:33Z" itemprop="datePublished">December 19, 2017 00:27</time></div>
+<div class='hide' itemprop='name'>29501</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #f1261d;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/154194/16967604.jpg" alt="16967604" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/dillon-bostwick' itemprop='alternateName'>
+dillon-bostwick
+</a>
+</div>
+<div class='content small' itemprop='text'><p>One will step through each iteration synchronously; the other will run each function as separate in the event queue:</p>&#x000A;&#x000A;<p>For example:<br>&#x000A;for (let i = 0; i &lt; arr.length; i++) { setTimeout(() =&gt; { console.log(arr[i]); }, 100); }<br>&#x000A;will give a different result than<br>&#x000A;arr.forEach((ele) =&gt; { setTimeout(() =&gt; { console.log(ele); }; };</p></div>
+<div class='diminish mt1'>
+7 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-0750aee0-2278-42c2-a39b-56b6f6a89c53">{"heartableId":"comment_29501","href":"/comments/29501/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-0750aee0-2278-42c2-a39b-56b6f6a89c53"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29659' itemid='29659' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-02-17T11:20:13Z" itemprop="datePublished">February 17, 2018 11:20</time></div>
+<div class='hide' itemprop='name'>29659</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #a67919;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/220243/IMG_20160919_174150.jpg" alt="Img 20160919 174150" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/arjha' itemprop='alternateName'>
+arjha
+</a>
+</div>
+<div class='content small' itemprop='text'><p>If considering modern browsers (with full ES6 support) , my favorite is "for of" loop. Like<br>&#x000A;for(let i of j){<br>&#x000A;//do something<br>&#x000A;}</p></div>
+<div class='diminish mt1'>
+5 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-b51ccc7c-1dd2-48a2-9281-a9026e297aca">{"heartableId":"comment_29659","href":"/comments/29659/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-b51ccc7c-1dd2-48a2-9281-a9026e297aca"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29677' itemid='29677' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-02-21T18:49:51Z" itemprop="datePublished">February 21, 2018 18:49</time></div>
+<div class='hide' itemprop='name'>29677</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #258eda;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/merb' itemprop='alternateName'>
+merb
+</a>
+</div>
+<div class='content small' itemprop='text'><p>What about this test? What is the difference I wonder.</p>&#x000A;&#x000A;<p><a href="https://jsperf.com/testing-foreach-vs-for-loop" rel="nofollow">https://jsperf.com/testing-foreach-vs-for-loop</a></p></div>
+<div class='diminish mt1'>
+5 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-9e36997d-91d3-4d22-9f9a-44eddbd3dd37">{"heartableId":"comment_29677","href":"/comments/29677/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-9e36997d-91d3-4d22-9f9a-44eddbd3dd37"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29770' itemid='29770' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-03-25T13:19:20Z" itemprop="datePublished">March 25, 2018 13:19</time></div>
+<div class='hide' itemprop='name'>29770</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #f8b77e;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/p1729' itemprop='alternateName'>
+p1729
+</a>
+</div>
+<div class='content small' itemprop='text'><p>you can't use for loop in async javascript</p></div>
+<div class='diminish mt1'>
+4 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-6327ef6c-2d03-45ed-8498-0d57aca038ab">{"heartableId":"comment_29770","href":"/comments/29770/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-6327ef6c-2d03-45ed-8498-0d57aca038ab"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29823' itemid='29823' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-04-18T19:49:54Z" itemprop="datePublished">April 18, 2018 19:49</time></div>
+<div class='hide' itemprop='name'>29823</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #27f006;'>
+<img src="https://coderwall-assets-0.s3.amazonaws.com/uploads/user/avatar/222679/kingfoo.png" alt="Kingfoo" />
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/Hammerjack' itemprop='alternateName'>
+Hammerjack
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Great tip.  I love simplicity and nothing beats it like native, well known language constructs.  But, if what dillon-bostwick claims is true (all evidence I see is to the contrary), then the foreach does have that in its favor.</p></div>
+<div class='diminish mt1'>
+3 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-aebd1372-2a8b-4a1a-9a14-46bf24bc6d32">{"heartableId":"comment_29823","href":"/comments/29823/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-aebd1372-2a8b-4a1a-9a14-46bf24bc6d32"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29902' itemid='29902' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-05-11T12:41:17Z" itemprop="datePublished">May 11, 2018 12:41</time></div>
+<div class='hide' itemprop='name'>29902</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #c7ac5b;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/tonyb67' itemprop='alternateName'>
+tonyb67
+</a>
+</div>
+<div class='content small' itemprop='text'><p>The only reason a for loop is faster is that the browsers have optimized it. Once we start using methods like forEach, map, reduce and filter, the browsers will optimize for those as well. Plus, for loops are not asynchronous.</p></div>
+<div class='diminish mt1'>
+3 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-5ed2a36e-0c2b-44be-99c8-994218b8bf4b">{"heartableId":"comment_29902","href":"/comments/29902/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-5ed2a36e-0c2b-44be-99c8-994218b8bf4b"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_29903' itemid='29903' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-05-11T22:27:43Z" itemprop="datePublished">May 11, 2018 22:27</time></div>
+<div class='hide' itemprop='name'>29903</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #38134f;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/EdwardH' itemprop='alternateName'>
+EdwardH
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Damn, this is just another confirmation of why I recently switched to Firefox...</p>&#x000A;&#x000A;<p>Chrome:<br>&#x000A;Array.forEach - 48,912<br>&#x000A;For - 504,695</p>&#x000A;&#x000A;<p>Firefox:<br>&#x000A;Array.forEach - 1,024,928<br>&#x000A;For - 1,127,704</p>&#x000A;&#x000A;<p>But of course, one should implement according to what the most popular browser demands...</p></div>
+<div class='diminish mt1'>
+3 months ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-e297c7bc-1efb-4f33-bad2-592fb444d656">{"heartableId":"comment_29903","href":"/comments/29903/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-e297c7bc-1efb-4f33-bad2-592fb444d656"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_30123' itemid='30123' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-07-05T21:28:00Z" itemprop="datePublished">July 05, 2018 21:28</time></div>
+<div class='hide' itemprop='name'>30123</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #23b6c1;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/jarret' itemprop='alternateName'>
+jarret
+</a>
+</div>
+<div class='content small' itemprop='text'><p>Another way is to use closure. <br>&#x000A;<code class="prettyprint">&#x000A;var links = document.getElementsByTagName('a');&#x000A;for (var i = 0; i &lt; links.length; i++) {&#x000A;  (function(element) {&#x000A;    element.addEventListener('click', function(ev) {&#x000A;      ev.preventDefault();&#x000A;      alert(element.innerText);&#x000A;    });&#x000A;  })(links[i]);&#x000A;}</code><br>&#x000A;<a href="https://jsperf.com/for-vs-foreach-attaching-events" rel="nofollow">Benchmark</a></p></div>
+<div class='diminish mt1'>
+24 days ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-ab958d46-0785-455e-8cf5-0cac2a4d85a3">{"heartableId":"comment_30123","href":"/comments/30123/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-ab958d46-0785-455e-8cf5-0cac2a4d85a3"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+<div class='border-top comment inline-block mb1 py1' id='comment_30135' itemid='30135' itemscope itemtype='http://schema.org/Comment' style='width: 100%'>
+<div class='hide'><time datetime="2018-07-09T02:56:26Z" itemprop="datePublished">July 09, 2018 02:56</time></div>
+<div class='hide' itemprop='name'>30135</div>
+<div class='left mt1 mr2 avatar small' style='background-color: #61a14c;'>
+
+</div>
+<div class='overflow-hidden py0 mt0'>
+<div class='clearfix'>
+<div class='author' itemprop='author'>
+<a class='bold black no-hover' href='/jennyhannb' itemprop='alternateName'>
+jennyhannb
+</a>
+</div>
+<div class='content small' itemprop='text'><p>this is rarely the case.</p></div>
+<div class='diminish mt1'>
+21 days ago
+&middot;
+<script type="application/json" class="js-react-on-rails-component" data-component-name="HeartButton" data-dom-id="HeartButton-react-component-f02d8e27-1ce5-4d8a-a426-9042e7599e40">{"heartableId":"comment_30135","href":"/comments/30135/likes","labels":["",""]}</script>
+    <div style="display:inline-block" id="HeartButton-react-component-f02d8e27-1ce5-4d8a-a426-9042e7599e40"></div>
+    
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class='sm-col sm-col sm-col-12 md-col-4'>
+<div class='clearfix sm-ml3 mt3 p1 pb3'>
+<h5 class='mt0 mb1'>
+<i class="fa fa-folder-o mr1"></i>
+Filed Under
+</h5>
+<hr>
+<div class='topic clearfix py1'>
+<a href='/t/front-end/popular'>
+<div class='bold'>Javascript Tips to Beat the DOM Into Submission</div>
+</a>
+</div>
+</div>
+<script type="application/json" id="js-react-on-rails-context">{"inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","href":"https://coderwall.com/p/kvzbpa/don-t-use-array-foreach-use-for-instead","location":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","scheme":"https","host":"coderwall.com","port":null,"pathname":"/p/kvzbpa/don-t-use-array-foreach-use-for-instead","search":null,"httpAcceptLanguage":"en-US,en;q=0.9","pusherKey":"56c8c9e2d013d4e9f315","user":null,"serverSide":false}</script>
+<script type="application/json" class="js-react-on-rails-component" data-component-name="Sponsors" data-dom-id="Sponsors-react-component-f4ec547d-fb0d-447b-9872-db6ccbf017e2">{}</script>
+    <div id="Sponsors-react-component-f4ec547d-fb0d-447b-9872-db6ccbf017e2"></div>
+    
+
+<div class='clearfix sm-ml3 mt3 p1'>
+<div class='clearfix'>
+<div class='col col-7'>
+<h5 class='mt0'>
+<i class="fa fa-diamond mr1"></i>
+Awesome Job
+</h5>
+</div>
+<div class='col col-5'>
+<div class='right font-sm bold'>
+<a class='block' href='/jobs'>
+See All Jobs
+<i class="fa fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+<hr>
+<div class='clearfix py1'>
+<a class='link no-hover mt2' ga-event-action='Protip Sidebar - Featured Job' ga-event-category='Jobs' ga-event-label='moovel Group GmbH - 2a47a646-8690-11e8-97e4-2558182c5531' href='https://moovelgroup.redirect.your-jobresponse.com/mobility_app_squad_looking_for_android_developer_f_m_berlin/217661/V819/anwenden' rel='nofollow' target='_blank'>
+<div class='col col-3 md-col-2'>
+<img class="" src="//github-jobs.s3.amazonaws.com/1a44300c-8690-11e8-8c5e-2609ec33f8f5.png" alt="1a44300c 8690 11e8 8c5e 2609ec33f8f5" />
+</div>
+<div class='overflow-hidden pl2'>
+<div class='blue bold'>
+Mobility App Squad looking for Android Developer (f/m)
+</div>
+<div class='font-sm black'>
+<div class='inline'><a rel="nofollow" target="_blank" ga-event-category="Jobs" ga-event-action="Protip Sidebar - Featured Job" ga-event-label="moovel Group GmbH - 2a47a646-8690-11e8-97e4-2558182c5531" href="https://www.moovel.com/de/DE">moovel Group GmbH</a></div>
+&middot;
+<div class='inline'>Berlin</div>
+&middot;
+<div class='inline'>Full Time</div>
+</div>
+</div>
+</a>
+</div>
+
+<div class='mt2 font-sm'>
+<a class='border--green green bold' href='https://coderwall.com/jobs/new'>
+Post a job for only
+$299
+</a>
+</div>
+</div>
+<div class='clearfix ml3 mt4' ga-location='Protip Sidebar'>
+<div class='bsarocks bsap_74f50e679004d8f4d62fec4b0f74ccf1' id='bsap_1305410'></div>
+</div>
+</div>
+</div>
+</div>
+<script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+</div>
+</main>
+<footer class='border-top'>
+<nav class='clearfix'>
+<div class='col col-4 py1 mt1'>
+<a class='btn' href='https://twitter.com/coderwall' target='_blank'>
+@coderwall
+<i class="fa fa-twitter fa-1x ml1"></i>
+</a>
+</div>
+<div class='col col-8 py2 mt1'>
+<div class='right'>
+<a class='inline-block ml1' href='https://github.com/coderwall/coderwall-next' rel='nofollow'>
+<i class="fa fa-github-alt"></i>
+</a>
+<a class='inline-block ml1' href='/t/hackerdesk/popular'>
+<div class='sm-show'><i class="fa fa-gift"></i></div>
+</a>
+<a class='inline-block ml1 mr1' href='mailto:support@coderwall.com'>
+Contact
+</a>
+<a class='inline-block mr1' href='/privacy_policy'>Privacy</a>
+<a class='inline-block mr1' href='/tos'>Terms</a>
+<p class='inline-block diminish inline mr1'>Copyright 2018</p>
+</div>
+</div>
+</nav>
+</footer>
+</div>
+<script type="application/json" data-js-react-on-rails-store="store">{"currentUser":{"item":null},"currentProtip":{"item":{"id":84599,"body":"**Array.ForEach** is about 95% slower than **for()** in for each for Arrays in JavaScript. \r\n\r\nSo, don't use:\r\n\r\n    arr.forEach(function (item) {\r\n      someFn(item);\r\n    })\r\n\r\nUse:\r\n\r\n    for (var i = 0, len = arr.length; i ","created_at":"2012-12-02T11:24:46.547Z","heartableId":"protip_84599","hearts":118,"html":"\u003cp\u003e\u003cstrong\u003eArray.ForEach\u003c/strong\u003e is about 95% slower than \u003cstrong\u003efor()\u003c/strong\u003e in for each for Arrays in JavaScript. \u003c/p\u003e\n\n\u003cp\u003eSo, don't use:\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\"prettyprint\"\u003earr.forEach(function (item) {\n  someFn(item);\n})\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eUse:\u003c/p\u003e\n\n\u003cpre\u003e\u003ccode class=\"prettyprint\"\u003efor (var i = 0, len = arr.length; i \u0026lt; len; i++) {\n  someFn(arr[i]);\n}\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eSee this performance test online: \u003ca href=\"http://jsperf.com/fast-array-foreach\" rel=\"nofollow\"\u003ehttp://jsperf.com/fast-array-foreach\u003c/a\u003e\u003c/p\u003e\n","public_id":"kvzbpa","subscribed":false,"tags":["performance","loop","javascript"],"title":"Don't use Array.forEach, use for() instead","upvotes":118}},"comments":{"items":[{"id":2110,"hearts":3,"heartableId":"comment_2110"},{"id":2112,"hearts":1,"heartableId":"comment_2112"},{"id":2116,"hearts":2,"heartableId":"comment_2116"},{"id":2119,"hearts":0,"heartableId":"comment_2119"},{"id":5778,"hearts":2,"heartableId":"comment_5778"},{"id":6538,"hearts":0,"heartableId":"comment_6538"},{"id":13714,"hearts":3,"heartableId":"comment_13714"},{"id":14871,"hearts":7,"heartableId":"comment_14871"},{"id":17942,"hearts":2,"heartableId":"comment_17942"},{"id":19298,"hearts":3,"heartableId":"comment_19298"},{"id":20316,"hearts":2,"heartableId":"comment_20316"},{"id":20907,"hearts":0,"heartableId":"comment_20907"},{"id":23831,"hearts":0,"heartableId":"comment_23831"},{"id":26560,"hearts":0,"heartableId":"comment_26560"},{"id":27039,"hearts":0,"heartableId":"comment_27039"},{"id":27355,"hearts":0,"heartableId":"comment_27355"},{"id":27419,"hearts":1,"heartableId":"comment_27419"},{"id":27469,"hearts":0,"heartableId":"comment_27469"},{"id":27609,"hearts":2,"heartableId":"comment_27609"},{"id":27822,"hearts":1,"heartableId":"comment_27822"},{"id":28224,"hearts":1,"heartableId":"comment_28224"},{"id":28239,"hearts":9,"heartableId":"comment_28239"},{"id":28273,"hearts":0,"heartableId":"comment_28273"},{"id":28324,"hearts":0,"heartableId":"comment_28324"},{"id":28335,"hearts":0,"heartableId":"comment_28335"},{"id":28355,"hearts":0,"heartableId":"comment_28355"},{"id":28370,"hearts":0,"heartableId":"comment_28370"},{"id":28376,"hearts":1,"heartableId":"comment_28376"},{"id":28501,"hearts":0,"heartableId":"comment_28501"},{"id":28545,"hearts":1,"heartableId":"comment_28545"},{"id":28612,"hearts":0,"heartableId":"comment_28612"},{"id":28651,"hearts":0,"heartableId":"comment_28651"},{"id":28720,"hearts":0,"heartableId":"comment_28720"},{"id":29008,"hearts":2,"heartableId":"comment_29008"},{"id":29196,"hearts":0,"heartableId":"comment_29196"},{"id":29294,"hearts":0,"heartableId":"comment_29294"},{"id":29325,"hearts":1,"heartableId":"comment_29325"},{"id":29375,"hearts":0,"heartableId":"comment_29375"},{"id":29389,"hearts":0,"heartableId":"comment_29389"},{"id":29457,"hearts":0,"heartableId":"comment_29457"},{"id":29501,"hearts":0,"heartableId":"comment_29501"},{"id":29659,"hearts":0,"heartableId":"comment_29659"},{"id":29677,"hearts":0,"heartableId":"comment_29677"},{"id":29770,"hearts":1,"heartableId":"comment_29770"},{"id":29823,"hearts":0,"heartableId":"comment_29823"},{"id":29902,"hearts":0,"heartableId":"comment_29902"},{"id":29903,"hearts":0,"heartableId":"comment_29903"},{"id":30123,"hearts":1,"heartableId":"comment_30123"},{"id":30135,"hearts":0,"heartableId":"comment_30135"}]}}</script>
+</body>
+</html>

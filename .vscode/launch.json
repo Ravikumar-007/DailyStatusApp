@@ -1,0 +1,38 @@
+{
+    "configurations": [
+
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Server",
+        "program": "${workspaceRoot}/mean_app/app.js",
+        "sourceMaps": true,
+        "outFiles": [
+          "${workspaceRoot}/controllers/**/*.js"
+         
+        ],
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "protocol": "auto"
+      },
+      {
+        "name": "Client",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:4200/",
+        "sourceMaps": true,
+        "webRoot": "${workspaceRoot}/angular-src/app/",
+        "userDataDir": "${workspaceRoot}/.vscode/chrome"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "Server/Client",
+        "configurations": [
+          "Server",
+          "Client"
+        ]
+      }
+    ]
+  }

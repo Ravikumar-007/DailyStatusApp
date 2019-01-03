@@ -1,0 +1,1553 @@
+<html lang="en" class="no-js">
+
+<head>
+
+    <link rel="stylesheet" href="//d7qq1rwqmy20p.cloudfront.net/assets/site/site-00f04bc490efbc4be7861bec075f8904.css"/> 
+    <script src="//d7qq1rwqmy20p.cloudfront.net/assets/site/site-84d6895339b00fb2ce5bbabbdbadc838.js" type="text/javascript" ></script>
+    <script src="//d7qq1rwqmy20p.cloudfront.net/assets/site/highlighterJs-79b6280371a7deb6f456500abdd3f1f3.js" type="text/javascript" ></script>
+   
+    <title>
+        
+            20188 Blogs|Oodles Technologies
+        
+    </title>
+        <link rel="icon" href="//d7qq1rwqmy20p.cloudfront.net/assets/site/favicon-b07d33409cb5e1c78af73c77239ab6df.ico" type="image/x-icon" />
+    
+	<!-- Start Alexa Certify Javascript -->
+		<script type="text/javascript">
+		_atrk_opts = { atrk_acct:"oqENn1QolK10fn", domain:"oodlestechnologies.com",dynamic: true};
+		(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+		</script>
+		<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=oqENn1QolK10fn" style="display:none" height="1" width="1" alt="" /></noscript>
+		<!-- End Alexa Certify Javascript -->
+    <meta name="layout" content="main">
+    <meta charset="utf-8">
+    
+        
+        <meta name="description" content=" 20188 | Oodles Technologies | Hadoop , Grails, Kaltura, Video Streaming experts"/>
+        <meta name="keywords" content=" 20188 | Oodles Technologies | Hadoop , Grails, Kaltura, Video Streaming experts"/>
+    
+    <script type="text/javascript">
+        var switchTo5x = true;
+    </script>
+    <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "43b9bfe6-0189-4c68-9a58-45b58b90d730"
+        });
+    </script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+    <!--[if lt IE 8]>
+  		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>  
+ 	<![endif]-->
+    <!--[if lt IE 9]>
+		<link rel="stylesheet" href="common/ie.css" type="text/css" media="screen">
+		<script src="dashboard/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(function() {
+                // Scroll Pane function 
+                var settings = {
+                    showArrows: false,
+                    verticalArrowPositions: 'after',
+                    horizontalArrowPositions: 'after'
+                };
+                var pane = $('.scroll-pane');
+                pane.jScrollPane(settings);
+                //var contentPane = pane.data('jsp').getContentPane();
+                var i = 1;
+                $('body').mousemove(function() {
+                    $('body').contents().find('.jspContainer').each(function() {
+                        var text = $(this).find('.syntaxhighlighter').height();
+                        $(this).height(text + 7);
+                    });
+                });
+            });
+        });
+    </script>
+    <script>
+        $(window).load(function() {
+            $("body").addClass("blue");
+        });
+        $(document).ready(function() {
+            $('.tooltipster').tooltipster({
+                interactive: true
+            });
+            $(".blogHighlighted").addClass("current");
+        });
+    </script>
+
+    
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    
+    _gaq.push(['_setAccount', 'UA-11294399-3']);
+    _gaq.push(['_trackPageview']);
+    
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+
+<body>
+
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+
+@media (max-width: 420px){
+.front-logo{
+    margin-top: 13px;
+    margin-left: -36px;
+    }
+    }
+
+</style>
+
+
+
+<div id="navigation-wrapper">
+    <div id="navigation" class="clearfix">
+  	
+ 
+<div itemscope itemtype="//schema.org/Organization" class="front-logo">
+  <a class= "background-none" itemprop="url" href="https://www.oodlestechnologies.com" >
+  	<img itemprop="logo" src="https://www.oodlestechnologies.com/assets/dashboard/front/oodlesLogo.png"  alt="Oodles Technologies-SaaS Web and Mobile App Development | Blockchain Development Services"/>
+  </a>
+</div>
+ 
+ <!--   <div id="logo" itemscope itemtype="http://schema.org/Organization" class="front-logo">
+            <a itemprop="url" href="https://www.oodlestechnologies.com" style="background: none;"> <img itemprop="logo" src="//www.oodlestechnologies.com/assets/dashboard/front/logo.png" width="308" height="58" border="0" alt=" Oodles Technologies- Software Development Company India" />
+            </a>
+        </div>  -->
+        <button type="button" class="btn-navbar"></button>
+        <ul id="menu">
+            <li class="home homeHighlighted"><a href="https://www.oodlestechnologies.com" class="animated">Home</a>
+            </li>
+            
+
+                <li class="servicesHighlighted"><a href="https://www.oodlestechnologies.com/#services" class="animated">Services</a>
+                </li>
+            
+            <li class="workHighlighted">
+                <a href="/portfolio">Work</a>
+            </li>
+
+            <li class="approachHighlighted"><a href="https://www.oodlestechnologies.com/approach">Approach</a>
+            </li>
+            <li class="careersHighlighted"><a href="https://www.oodlestechnologies.com/team/about">About</a>
+            </li>
+            <li class="blogHighlighted">
+                <a href="/blogs" class="">Blog</a>
+            </li>
+            <li class="contactHighlighted">
+                <a href="/contactus" class="">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--Start of Intercom Live Chat Script      
+ 		 Main App       forwading email  setting -   ka47kdjj@incoming.intercom.io,Test App-v1x30qed@incoming.intercom.io
+	     user_hash:"782a0deb23c6c2032765711c86278db4079460499b08ef738f69974883e73ffd" -->
+	     
+
+<script>
+  window.intercomSettings = {
+    app_id: "ka47kdjj",
+    leadSource: "Oodles-Technologies"   
+  };
+  
+</script>
+<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ka47kdjj';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+
+<!--End of Intercom Live Chat Script-->
+
+<script>
+    $(document).ready(function() {
+        $("#menu").removeClass("showmenu");
+        $(".btn-navbar").click(function() {
+            $("#menu").toggleClass("showmenu");
+        });
+    });
+</script>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <div>
+        
+    <div class="sub-page-bg">
+        <div class="title-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <h1>More Articles</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+<div class="bg-news">
+    <div class="container">
+        <div class="row">
+            <div class="newsletter-form">
+                <div class="span9">
+                    <form action="/solrSearch/searchAllResult" method="post" name="searchForm" class="search-form" onSubmit="return solrCheck()" id="form1" >
+                        <fieldset>
+                            <span class="spinner-img">&nbsp;</span>
+                            <input type="text" class="bdr-radius-5 searchBox ui-autocomplete-input input" name="searchTerm" placeholder="Search Blog" id="solrTextBox" url="/solrSearch/searchSolr?startPage=0&pageSize=9" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" style="width:93%">
+                            <input type="submit" id="search-button" class="btn btn-3 icon-search search-btn" />
+                           
+                         
+                              
+                        </fieldset>
+                    </form>
+                    
+                </div>
+                <div class="span3">
+                    <div class="subscibeButton">
+                        <a href="https://feeds.feedburner.com/oodlestechnologies/MuWy" target="_blank"><span>
+                        <img src="//d7qq1rwqmy20p.cloudfront.net/assets/site/blogs/rss-icon-e4367e93dd336ae87bf06c3cd1bd5013.png" alt="rss"/></span>Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+var pageSize=9;
+var href=0;
+    function solrCheck() {	
+        if ($("#solrTextBox").val() != "")
+           
+            return true
+        else
+            return false
+            
+    }
+    $(document).ready(function()
+    		{   
+
+    	$("#getPagesize").change(function()
+    		    {
+    		        var id=$(this).val();
+    		        var dataString = 'id='+ id;
+    		        pageSize=id;
+    		        showMore();
+    		         return false;
+    		    });
+	    
+    		   			 $('.pagination-custom a').click(function(){
+    		        
+    		           $('.pagination-custom a').removeClass("active") 
+    		            $(this).toggleClass("active");
+    		            href = $(".active").attr('href');
+    		            href=href-1;
+    		           	showMore();
+    		           	return false;
+    		           		    });
+      		    
+    		});
+
+
+
+    function showMore() {
+    	var newdata="";
+	    var datadatailed="";
+        var searchText=$('.search-form input').val();
+        var paramString = "&pageSize=" + pageSize + "&startPage=" + href+"&solrTextValue="+searchText ;
+        $.ajax({
+            url: "/solrSearch/searchSolr",
+            type: "get",
+            data: paramString,
+            success: function(data) {
+              console.log("data  "+data.jsonArray.length);
+               var total=data.jsonArray.length;
+               for(var i=0;i<data.jsonArray.length-1;i++)
+               {   
+   				  var date=new Date(data.jsonArray[i].DATE);
+				  var day=date.toString().substring(8,10);
+				  var month=date.toString().substring(4,7);
+				  var year=date.toString().substring(13,15); 
+                  datadatailed="<li><div class='journal-date'>"+day+"<span>"+month+"-"+year+"</span></div><a href='/blogs/"+data.jsonArray[i].TITLE+"' class='journal-link icon-coffee'>Read More</a><div class='journal-content'><h3>"+data.jsonArray[i].TITLE+"</h3><span>"+data.jsonArray[i].BODY+"</span><br>Posted By:"+data.jsonArray[i].AUTHOR+"</div></li>";
+                  newdata=newdata+""+datadatailed;
+               }
+           	 $("#searchedBlogs").html("<ul class='list-journal'>"+newdata+"</ur>");
+                
+            }
+         
+        });
+
+    }
+	
+</script>
+<style>
+.display-none{
+	display:none;
+}
+#form1{margin-bottom:30px;float:none;width: 89%;}
+</style>
+        <div class="container">
+            <div class="row">
+                <div class="span9 bloghiglight">
+                    <div class="journal-post journal-post-resize">
+                        <ul class="list-journal">
+                            
+                                <div class="blog-left">
+                                    <div class="row">
+                                        <div class="span9">
+                                            <ul class="list-journal" id="more-articles">
+                                                
+    
+        <li>
+            <div class="journal-date">
+                24
+                <span>Aug-18</span>
+            </div>
+            <a href="/blogs/Enhance-Your-Business-Marketing-Efforts-with-Big-Data" class="journal-link icon-coffee">Read More</a>
+            <div class="journal-content">
+                
+                    <h3>
+					Enhance Your Business Marketing Efforts with Big Data
+				</h3>
+                
+                Posted by
+                
+                    Asha Devi
+                
+            </div>
+        </li>
+    
+        <li>
+            <div class="journal-date">
+                24
+                <span>Aug-18</span>
+            </div>
+            <a href="/blogs/AI-Will-Dominate-The-Mobile-Market-In-2019" class="journal-link icon-coffee">Read More</a>
+            <div class="journal-content">
+                
+                    <h3>
+					AI Will Dominate The Mobile Market In 2019
+				</h3>
+                
+                Posted by
+                
+                    Anirudh Bhardwaj
+                
+            </div>
+        </li>
+    
+        <li>
+            <div class="journal-date">
+                24
+                <span>Aug-18</span>
+            </div>
+            <a href="/blogs/SaaS-Tricks-To-Minimize-The-Cloud-Security-Risks" class="journal-link icon-coffee">Read More</a>
+            <div class="journal-content">
+                
+                    <h3>
+					SaaS Tricks To Minimize The Cloud Security Risks
+				</h3>
+                
+                Posted by
+                
+                    Priyansha Sinha
+                
+            </div>
+        </li>
+    
+        <li>
+            <div class="journal-date">
+                24
+                <span>Aug-18</span>
+            </div>
+            <a href="/blogs/Boost-Your-Mobile-App-Development-with-Artificial-Intelligence" class="journal-link icon-coffee">Read More</a>
+            <div class="journal-content">
+                
+                    <h3>
+					Boost Your Mobile App Development with Artificial Intelligence
+				</h3>
+                
+                Posted by
+                
+                    Asha Devi
+                
+            </div>
+        </li>
+    
+        <li>
+            <div class="journal-date">
+                24
+                <span>Aug-18</span>
+            </div>
+            <a href="/blogs/An-Overview-of-IoT-Blockchain-and-AI-in-Digital-Transformation" class="journal-link icon-coffee">Read More</a>
+            <div class="journal-content">
+                
+                    <h3>
+					An Overview of IoT Blockchain and AI in Digital Transformation
+				</h3>
+                
+                Posted by
+                
+                    Asha Devi
+                
+            </div>
+        </li>
+    
+                                            </ul>
+                                            <div id="moreButton">
+                                                
+                                                    <a class="btn-1 btn-articles icon-align-justify" onClick="showMore();">More Articles</a>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="span3 padding-bottom padding-top45">
+                    
+
+
+	<h4 class="top-1">Mobile Applications</h4>
+	<ul class="list-tags clearfix">
+		
+			<li><a href="/blog/tagged/android">
+				android
+				</a></li>
+		
+			<li><a href="/blog/tagged/phonegap">
+				phonegap
+				</a></li>
+		
+			<li><a href="/blog/tagged/titanium">
+				titanium
+				</a></li>
+		
+			<li><a href="/blog/tagged/ios">
+				ios
+				</a></li>
+		
+			<li><a href="/blog/tagged/cordova">
+				cordova
+				</a></li>
+		
+			<li><a href="/blog/tagged/swift">
+				swift
+				</a></li>
+		
+			<li><a href="/blog/tagged/html">
+				html
+				</a></li>
+		
+			<li><a href="/blog/tagged/css">
+				css
+				</a></li>
+		
+			<li><a href="/blog/tagged/mobile%20application">
+				mobile application
+				</a></li>
+		
+			<li><a href="/blog/tagged/Shopify">
+				Shopify
+				</a></li>
+		
+	</ul>
+
+	<h4 class="top-1">Video Content</h4>
+	<ul class="list-tags clearfix">
+		
+			<li><a href="/blog/tagged/ffmpeg">
+				ffmpeg
+				</a></li>
+		
+			<li><a href="/blog/tagged/kaltura">
+				kaltura
+				</a></li>
+		
+			<li><a href="/blog/tagged/roku">
+				roku
+				</a></li>
+		
+			<li><a href="/blog/tagged/LiveStreaming">
+				LiveStreaming
+				</a></li>
+		
+			<li><a href="/blog/tagged/wowza">
+				wowza
+				</a></li>
+		
+			<li><a href="/blog/tagged/video">
+				video
+				</a></li>
+		
+			<li><a href="/blog/tagged/netgem">
+				netgem
+				</a></li>
+		
+			<li><a href="/blog/tagged/WebRTC">
+				WebRTC
+				</a></li>
+		
+			<li><a href="/blog/tagged/AppleTV">
+				AppleTV
+				</a></li>
+		
+	</ul>
+
+	<h4 class="top-1">Bigdata & NoSQL</h4>
+	<ul class="list-tags clearfix">
+		
+			<li><a href="/blog/tagged/hadoop">
+				hadoop
+				</a></li>
+		
+			<li><a href="/blog/tagged/mahout">
+				mahout
+				</a></li>
+		
+			<li><a href="/blog/tagged/mongodb">
+				mongodb
+				</a></li>
+		
+			<li><a href="/blog/tagged/bigdata">
+				bigdata
+				</a></li>
+		
+			<li><a href="/blog/tagged/nosql">
+				nosql
+				</a></li>
+		
+			<li><a href="/blog/tagged/neo4j">
+				neo4j
+				</a></li>
+		
+			<li><a href="/blog/tagged/MachineLearning">
+				MachineLearning
+				</a></li>
+		
+			<li><a href="/blog/tagged/RecommendationSystem">
+				RecommendationSystem
+				</a></li>
+		
+			<li><a href="/blog/tagged/PredictiveAnalytics">
+				PredictiveAnalytics
+				</a></li>
+		
+			<li><a href="/blog/tagged/artificial%20Intelligence">
+				artificial Intelligence
+				</a></li>
+		
+			<li><a href="/blog/tagged/Virtualreality">
+				Virtualreality
+				</a></li>
+		
+			<li><a href="/blog/tagged/UI">
+				UI
+				</a></li>
+		
+	</ul>
+
+	<h4 class="top-1">SaaS Applications</h4>
+	<ul class="list-tags clearfix">
+		
+			<li><a href="/blog/tagged/grails">
+				grails
+				</a></li>
+		
+			<li><a href="/blog/tagged/html5">
+				html5
+				</a></li>
+		
+			<li><a href="/blog/tagged/nodejs">
+				nodejs
+				</a></li>
+		
+			<li><a href="/blog/tagged/reverseajax">
+				reverseajax
+				</a></li>
+		
+			<li><a href="/blog/tagged/angularjs">
+				angularjs
+				</a></li>
+		
+			<li><a href="/blog/tagged/jquery">
+				jquery
+				</a></li>
+		
+			<li><a href="/blog/tagged/mysql">
+				mysql
+				</a></li>
+		
+			<li><a href="/blog/tagged/ngrok">
+				ngrok
+				</a></li>
+		
+			<li><a href="/blog/tagged/Knockoutjs">
+				Knockoutjs
+				</a></li>
+		
+			<li><a href="/blog/tagged/Angular2">
+				Angular2
+				</a></li>
+		
+			<li><a href="/blog/tagged/oops">
+				oops
+				</a></li>
+		
+			<li><a href="/blog/tagged/javascript">
+				javascript
+				</a></li>
+		
+			<li><a href="/blog/tagged/Java">
+				Java
+				</a></li>
+		
+			<li><a href="/blog/tagged/Web%20Apps">
+				Web Apps
+				</a></li>
+		
+			<li><a href="/blog/tagged/saas">
+				saas
+				</a></li>
+		
+			<li><a href="/blog/tagged/bootstrap">
+				bootstrap
+				</a></li>
+		
+			<li><a href="/blog/tagged/Angular">
+				Angular
+				</a></li>
+		
+			<li><a href="/blog/tagged/cloud%20computing">
+				cloud computing
+				</a></li>
+		
+	</ul>
+
+	<h4 class="top-1">Miscellaneous</h4>
+	<ul class="list-tags clearfix">
+		
+			<li><a href="/blog/tagged/bitcoin">
+				bitcoin
+				</a></li>
+		
+			<li><a href="/blog/tagged/nginx">
+				nginx
+				</a></li>
+		
+			<li><a href="/blog/tagged/postgresql">
+				postgresql
+				</a></li>
+		
+			<li><a href="/blog/tagged/cling">
+				cling
+				</a></li>
+		
+			<li><a href="/blog/tagged/OpenCV">
+				OpenCV
+				</a></li>
+		
+			<li><a href="/blog/tagged/Fresco">
+				Fresco
+				</a></li>
+		
+			<li><a href="/blog/tagged/blockchain%20mobile%20wallet">
+				blockchain mobile wallet
+				</a></li>
+		
+			<li><a href="/blog/tagged/ERP">
+				ERP
+				</a></li>
+		
+			<li><a href="/blog/tagged/IoT">
+				IoT
+				</a></li>
+		
+			<li><a href="/blog/tagged/testing">
+				testing
+				</a></li>
+		
+			<li><a href="/blog/tagged/blockchain">
+				blockchain
+				</a></li>
+		
+			<li><a href="/blog/tagged/GDPR">
+				GDPR
+				</a></li>
+		
+			<li><a href="/blog/tagged/wordpress">
+				wordpress
+				</a></li>
+		
+			<li><a href="/blog/tagged/Server">
+				Server
+				</a></li>
+		
+			<li><a href="/blog/tagged/DevOps">
+				DevOps
+				</a></li>
+		
+	</ul>
+
+	
+
+<h4 class="top-1">Archives</h4>
+<ul class="list-tags clearfix archives-list">
+    
+        <li>
+            <a href="/blog/archives/20188">
+                Aug 2018 (43)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/20187">
+                July 2018 (19)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/20186">
+                June 2018 (95)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/20185">
+                May 2018 (12)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/20184">
+                April 2018 (18)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/20183">
+                March 2018 (110)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/20182">
+                Feb 2018 (45)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/20181">
+                Jan 2018 (41)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/201712">
+                Dec 2017 (267)
+            </a>
+        </li>
+    
+        <li>
+            <a href="/blog/archives/201711">
+                Nov 2017 (94)
+            </a>
+        </li>
+    
+</ul>
+<a href="#" data-toggle="modal" id="subscribeUpdate"
+	data-target="#myModal" class="subscribe-btn" data-original-title=""
+	title="">Subscribe</a>
+	<br/>
+<a href="https://www.alexa.com/data/details/main?url=https://www.oodlestechnologies.com" class="alexa" class="AlexaSiteStatsWidget">
+	<img src="https://xsltcache.alexa.com/site_stats/gif/t/a/d3d3Lm9vZGxlc3RlY2hub2xvZ2llcy5jb20=/s.gif" border="0" alt="Alexa Certified Site Stats for www.oodlestechnologies.com "  visibility= "hidden">
+</a>
+
+<!-- Modal -->
+<div class="modal top fade Top fade2 div-index" id="myModal"
+	 tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Subscribe To Our
+					Blogs</h4>
+			</div>
+			<div class="modal-body">
+				<form class="padding-change" id='subscribeForm' action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow">
+					<input type="text" class="form-control span5" name="email" placeholder="Please Enter Your Email Id Here" id="emailBox" /> 
+						<input type="hidden" value="oodlestechnologies/MuWy" name="uri" /> 
+						<input type="hidden" name="loc" value="en_US" />
+						 <input type="submit" value="Subscribe" class="btn btn-Subscribe animated-btn special_color green-btn" id="submitbutton" />
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {$('#subscribeForm').submit(
+										function() {
+											var value = document.getElementById('emailBox').value;
+											if (value == '') {
+												$('#emailBox').focus();
+												return false;
+											} else {
+												window.open('https://feedburner.google.com/fb/a/mailverify?uri=oodlestechnologies/MuWy', 'popupwindow', 'scrollbars=yes,width=550,height=520');
+												$('#myModal').fadeOut('fast');
+												$('.modal-backdrop').fadeOut('fast');
+												return true;
+											}
+										});
+					});
+</script>
+
+                </div>
+            </div>
+        </div>
+        <div class="black-block-bg social-block">
+    <div class="container">
+        <div class="row">
+            <div class="span6 social-block-facebook">
+                <div class="social-block-title">
+                    <div class="fb"></div>
+                    <div class="extra-wrap">
+                        <strong>Like Us</strong><span>On Facebook</span>
+                    </div>
+                </div>
+                <div class="fb-like" data-href="https://www.facebook.com/OodlesTech" data-send="false" data-width="450" data-show-faces="false" data-font="arial" data-colorscheme="dark"></div>
+                <p></p>
+                <a target="_blank" href="https://www.facebook.com/OodlesTech" class="btn-4 btn-social icon-facebook-sign">See More on
+					Facebook</a>
+            </div>
+            <div class="span6 social-block-twitter">
+                <div class="social-block-title">
+                    <div class="twit"></div>
+                    <div class="extra-wrap">
+                        <strong class="special_color">Follow Us</strong><span>On
+							Twitter</span>
+                    </div>
+                </div>
+                <a href="https://twitter.com/oodlestech" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @oodlestech</a>
+                <script>
+                    ! function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0],
+                            p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');
+                </script>
+                <div class="tweet"></div>
+                <a target="_blank" href="https://twitter.com/oodlestech" class="btn-4 btn-social icon-twitter-sign">Read More on Twitter</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //<![CDATA[
+    (function(d, s, id) {
+        "use strict";
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    //]]>
+</script>
+        <script src="//s7.addthis.com/js/250/addthis_widget.js#pubid=YOUR-PROFILE-ID" type="text/javascript"></script>
+        <script>
+            $(window).load(function() {
+                $('body').addClass('blue');
+            });
+            var startcall = 1;
+            var tag = "20188";
+            var category = "Archives";
+            var totalBlogs = "43";
+            function showMore() {
+                var paramString = "&start=" + startcall + "&tag=" + tag + "&category=" + category;
+                $.ajax({
+                    url: "/blog/tagBloglist",
+                    type: "post",
+                    data: paramString,
+                    success: function(data) {
+                        startcall += 1;
+                        $('ul#more-articles').append(data);
+                        if ((startcall * 5) >= totalBlogs)
+                            $("#moreButton").hide();
+                    }
+                });
+            }
+        </script>
+        <script>
+            $("#navigation").addClass("position-fix");
+        </script>
+        <!--social-->
+        <div id="fb-root"></div>
+
+    </div>
+
+    <script type="text/javascript">
+_linkedin_data_partner_id = "75197";
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=75197&fmt=gif" />
+</noscript>
+<footer>
+    <div class="footer-link-div">
+
+        <div class="container">
+            
+
+
+    
+        <ul class="footer-list">
+    
+    
+        <h5>
+			<i class="icon-mobile-phone"><a target="_blank"
+				href="https://www.oodlestechnologies.com/mobile-app-development-company">
+					Mobile Applications
+			</a></i>
+		</h5>
+    
+
+    <ul>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/android">
+                        <i class='icon-hand-right'></i> android
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/phonegap">
+                        <i class='icon-hand-right'></i> phonegap
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/titanium">
+                        <i class='icon-hand-right'></i> titanium
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/ios">
+                        <i class='icon-hand-right'></i> ios
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/cordova">
+                        <i class='icon-hand-right'></i> cordova
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/swift">
+                        <i class='icon-hand-right'></i> swift
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/html">
+                        <i class='icon-hand-right'></i> html
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/css">
+                        <i class='icon-hand-right'></i> css
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/mobile%20application">
+                        <i class='icon-hand-right'></i> mobile application
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Shopify">
+                        <i class='icon-hand-right'></i> Shopify
+                    </a>
+                </div>
+            </li>
+        
+    </ul>
+    </ul>
+
+    
+        <ul class="footer-list">
+    
+    
+        <h5>
+			<i class="icon-facetime-video"><a target="_blank"
+				href="https://www.oodlestechnologies.com/video-streaming-services">
+					Video Content
+			</a></i>
+		</h5>
+    
+
+    <ul>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/ffmpeg">
+                        <i class='icon-hand-right'></i> ffmpeg
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/kaltura">
+                        <i class='icon-hand-right'></i> kaltura
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/roku">
+                        <i class='icon-hand-right'></i> roku
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/LiveStreaming">
+                        <i class='icon-hand-right'></i> LiveStreaming
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/wowza">
+                        <i class='icon-hand-right'></i> wowza
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/video">
+                        <i class='icon-hand-right'></i> video
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/netgem">
+                        <i class='icon-hand-right'></i> netgem
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/WebRTC">
+                        <i class='icon-hand-right'></i> WebRTC
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/AppleTV">
+                        <i class='icon-hand-right'></i> AppleTV
+                    </a>
+                </div>
+            </li>
+        
+    </ul>
+    </ul>
+
+    
+        <ul class="footer-list">
+    
+    
+        <h5>
+			<i class="icon-tasks"><a target="_blank"
+				href="https://www.oodlestechnologies.com/bigdata-services">
+					Bigdata & NoSQL
+			</a></i>
+		</h5>
+    
+
+    <ul>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/hadoop">
+                        <i class='icon-hand-right'></i> hadoop
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/mahout">
+                        <i class='icon-hand-right'></i> mahout
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/mongodb">
+                        <i class='icon-hand-right'></i> mongodb
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/bigdata">
+                        <i class='icon-hand-right'></i> bigdata
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/nosql">
+                        <i class='icon-hand-right'></i> nosql
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/neo4j">
+                        <i class='icon-hand-right'></i> neo4j
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/MachineLearning">
+                        <i class='icon-hand-right'></i> MachineLearning
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/RecommendationSystem">
+                        <i class='icon-hand-right'></i> RecommendationSystem
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/PredictiveAnalytics">
+                        <i class='icon-hand-right'></i> PredictiveAnalytics
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/artificial%20Intelligence">
+                        <i class='icon-hand-right'></i> artificial Intelligence
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Virtualreality">
+                        <i class='icon-hand-right'></i> Virtualreality
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/UI">
+                        <i class='icon-hand-right'></i> UI
+                    </a>
+                </div>
+            </li>
+        
+    </ul>
+    </ul>
+
+    
+        <ul class="footer-list">
+    
+    
+        <h5>
+			<i class="icon-cloud"><a target="_blank"
+				href="https://www.oodlestechnologies.com/saas-application">
+					SaaS Applications
+			</a></i>
+		</h5>
+    
+
+    <ul>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/grails">
+                        <i class='icon-hand-right'></i> grails
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/html5">
+                        <i class='icon-hand-right'></i> html5
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/nodejs">
+                        <i class='icon-hand-right'></i> nodejs
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/reverseajax">
+                        <i class='icon-hand-right'></i> reverseajax
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/angularjs">
+                        <i class='icon-hand-right'></i> angularjs
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/jquery">
+                        <i class='icon-hand-right'></i> jquery
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/mysql">
+                        <i class='icon-hand-right'></i> mysql
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/ngrok">
+                        <i class='icon-hand-right'></i> ngrok
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Knockoutjs">
+                        <i class='icon-hand-right'></i> Knockoutjs
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Angular2">
+                        <i class='icon-hand-right'></i> Angular2
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/oops">
+                        <i class='icon-hand-right'></i> oops
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/javascript">
+                        <i class='icon-hand-right'></i> javascript
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Java">
+                        <i class='icon-hand-right'></i> Java
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Web%20Apps">
+                        <i class='icon-hand-right'></i> Web Apps
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/saas">
+                        <i class='icon-hand-right'></i> saas
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/bootstrap">
+                        <i class='icon-hand-right'></i> bootstrap
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Angular">
+                        <i class='icon-hand-right'></i> Angular
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/cloud%20computing">
+                        <i class='icon-hand-right'></i> cloud computing
+                    </a>
+                </div>
+            </li>
+        
+    </ul>
+    </ul>
+
+    
+        <ul class="footer-list tooltip-right">
+    
+    
+        <h5>
+			<i class="icon-cogs"></i>
+			Miscellaneous
+		</h5>
+    
+
+    <ul>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/bitcoin">
+                        <i class='icon-hand-right'></i> bitcoin
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/nginx">
+                        <i class='icon-hand-right'></i> nginx
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/postgresql">
+                        <i class='icon-hand-right'></i> postgresql
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/cling">
+                        <i class='icon-hand-right'></i> cling
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/OpenCV">
+                        <i class='icon-hand-right'></i> OpenCV
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Fresco">
+                        <i class='icon-hand-right'></i> Fresco
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/blockchain%20mobile%20wallet">
+                        <i class='icon-hand-right'></i> blockchain mobile wallet
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/ERP">
+                        <i class='icon-hand-right'></i> ERP
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/IoT">
+                        <i class='icon-hand-right'></i> IoT
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/testing">
+                        <i class='icon-hand-right'></i> testing
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/blockchain">
+                        <i class='icon-hand-right'></i> blockchain
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/GDPR">
+                        <i class='icon-hand-right'></i> GDPR
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/wordpress">
+                        <i class='icon-hand-right'></i> wordpress
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/Server">
+                        <i class='icon-hand-right'></i> Server
+                    </a>
+                </div>
+            </li>
+        
+            <li class="footer-list">
+                <div class="hover">
+                    <a href="/blog/tagged/DevOps">
+                        <i class='icon-hand-right'></i> DevOps
+                    </a>
+                </div>
+            </li>
+        
+    </ul>
+    </ul>
+
+
+        </div>
+    </div>
+    <div class="footer-copyright">
+		<div itemscope itemtype="http://schema.org/ProfilePage" class="container clearfix">
+			Copyright 2009-2018 OodlesTechnologies. All rights reserved.
+			<ul class="pull-right">
+			    <li><a href="/privacyPolicy" class=""></a>
+			    </li>
+				<li>
+					<link itemprop="url" href="http://www.oodlestechnologies.com">
+					<a itemprop="sameAs" href="https://twitter.com/oodlestech" class="icon-stack" target="_blank"> 
+						<i class="icon-circle icon-2x"></i> <span class="icon-twitter-f icon-1x"></span>
+					</a>
+				</li>
+				<li>
+					<a itemprop="sameAs" href="https://www.facebook.com/OodlesTech" class="icon-stack" target="_blank"> 
+						<i class="icon-circle icon-2x"></i> <span class="icon-facebook-f icon-1x"></span>
+					</a>
+				</li>
+				<li>
+					<a itemprop="sameAs" href="https://www.linkedin.com/company/oodles-technologies-pvt-ltd" class="icon-stack" target="_blank"> 
+						<i class="icon-circle icon-2x"></i> <span class="icon-linkedin-f icon-1x"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</footer>
+    <r:layoutResources/>
+</body>
+
+</html>
