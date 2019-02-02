@@ -1,6 +1,6 @@
 //Require mongoose package
 const mongoose = require('mongoose');
-const bcrypt=require('bcrypt');
+const bcrypt=require('bcryptjs');
 //Define BucketlistSchema with title, description and category
 const MeanlistSchema = mongoose.Schema({
     title: {
