@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt= require('bcrypt');
+const bcrypt= require('bcryptjs');
 const RoleSchema = mongoose.Schema({
     user_Id: {type: mongoose.Schema.Types.ObjectId,ref: 'User'},
     firstname: {
